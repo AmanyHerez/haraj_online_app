@@ -26,5 +26,11 @@ class AssetsImage{
   static const String OBJECTS="OBJECTS";
   static const String car="car";
   static const String locationIcon="location_icon";
+  static const String marcedaceIcon="marcedace_icon";
+  static const String modelCarIcon="model_car_icon";
+  static const String cityIcon="city_icon";
+  static const String fuelIcon="fuel_icon";
+  static const String macCarIcon="mac_car_icon";
+  static const String yearIcon="year_icon";
 
 }

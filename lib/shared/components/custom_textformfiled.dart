@@ -53,7 +53,7 @@ class CustomTextFomField extends StatelessWidget {
           floatingLabelStyle:
           const TextStyle(height:7, color: AppColor.grey,fontFamily: FontConstants.fontFamily),
           filled: true,
-          fillColor: AppColor.fillgrey,
+          fillColor: fillColor ??AppColor.fillgrey,
 
           prefixIcon: Container(
             width: 50,
@@ -61,7 +61,7 @@ class CustomTextFomField extends StatelessWidget {
             padding: EdgeInsets.all(12),
             margin: EdgeInsets.only(left: 8,),
             decoration: BoxDecoration(
-              border: Border(left: BorderSide(color: AppColor.lightGrey)),
+              border: Border(left: BorderSide(color: AppColor.dividerGreyColor),),
             ),
             child: CustomSvgImage(imageName: iconNamePuffix, height: 16, width: 16),
           ),
