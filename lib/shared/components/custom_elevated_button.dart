@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:haraj_app/shared/font_manager.dart';
 
 import '../style/color_manager.dart';
+
 class CustomElevatedButton extends StatelessWidget {
   String text;
   final Function() onPressed;
@@ -35,14 +36,20 @@ class CustomElevatedButton extends StatelessWidget {
       height: height ?? 50,
       width: width ?? double.infinity,
       child: ElevatedButton(
-        onPressed:  onPressed,
-        child: Text(text,style: TextStyle(color:colorText?? AppColor.white,fontFamily: FontConstants.fontFamily),),
+        onPressed: onPressed,
+        child: Text(
+          text,
+          style: TextStyle(
+            color: colorText ?? AppColor.white,
+            fontFamily: FontConstants.fontFamily,
+            fontSize: fontSize ?? 16,
+            fontWeight: fontWeight?? FontWeight.w500,
+          ),
+        ),
         style: ElevatedButton.styleFrom(
           backgroundColor: bgColor ?? AppColor.lightGrey,
           elevation: elevation,
-
-
-          side: BorderSide(color: bordercolor?? Colors.transparent),
+          side: BorderSide(color: bordercolor ?? Colors.transparent),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(Radius ?? 6),
           ),

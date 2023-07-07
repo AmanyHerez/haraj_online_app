@@ -7,6 +7,8 @@ import 'package:haraj_app/shared/font_manager.dart';
 import 'package:haraj_app/shared/style/color_manager.dart';
 
 import '../../shared/components/custom_textformfiled.dart';
+import '../../shared/widget/row_divider_widget.dart';
+import '../../shared/widget/social_container_widget.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -139,47 +141,16 @@ class RegisterScreen extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Divider(
-                            color: AppColor.lightGrey,
-                            height: 1,
-                            thickness: 1,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          'او',
-                          style: TextStyle(
-                            color: AppColor.black,
-                            fontSize: 14,
-                            fontFamily: FontConstants.fontFamily,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Expanded(
-                          child: Divider(
-                            color: AppColor.lightGrey,
-                            height: 1,
-                            thickness: 1,
-                          ),
-                        ),
-                      ],
-                    ),
+                    RowDividerWidget(),
                     SizedBox(
                       height: 40,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ContainerLoginPage(nameIcon: AssetsImage.twiterIcon),
-                        ContainerLoginPage(nameIcon: AssetsImage.facebookIcon),
-                        ContainerLoginPage(nameIcon: AssetsImage.googleIcon),
+                        SocialContainer(nameIcon: AssetsImage.twiterIcon),
+                        SocialContainer(nameIcon: AssetsImage.facebookIcon),
+                        SocialContainer(nameIcon: AssetsImage.googleIcon),
 
                       ],
                     )
@@ -194,27 +165,4 @@ class RegisterScreen extends StatelessWidget {
     );
   }
 }
-Widget ContainerLoginPage({required String nameIcon}){
-  return  Container(
-    margin: EdgeInsets.only(left: 15),
-    width: 54,
-    height: 54,
-    decoration: BoxDecoration(
-      color: AppColor.white,
-      boxShadow: [
-        BoxShadow(
-            color: AppColor.lightGrey, //New
-            blurRadius: 5.0,
-            offset: Offset(1, 1))
-      ],
-      borderRadius: BorderRadius.circular(50),
-    ),
-    child: Center(
-      child: CustomSvgImage(
-        imageName: nameIcon,
-        width: 22,
-        height: 22,
-      ),
-    ),
-  );
-}
+

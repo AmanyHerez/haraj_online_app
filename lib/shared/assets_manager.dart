@@ -32,5 +32,13 @@ class AssetsImage{
   static const String fuelIcon="fuel_icon";
   static const String macCarIcon="mac_car_icon";
   static const String yearIcon="year_icon";
+  static const String expandIcon="expand";
+  static const String image="image";
+  static const String images="images";
+  static const String chat="chat";
+  static const String whatsappIcon="whatsapp_icon";
+  static const String telphoneIcon="telphone_icon";
+  static const String dollerIcon="doller_icon";
+  static const String checkIcon="check_icon";
 
 }

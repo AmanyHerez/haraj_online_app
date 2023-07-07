@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:haraj_app/shared/style/color_manager.dart';
 
-import '../shared/assets_manager.dart';
-import '../shared/components/custom_elevated_button.dart';
-import '../shared/components/custom_textformfiled.dart';
-import '../shared/components/custome_image.dart';
-import '../shared/font_manager.dart';
+import '../../shared/assets_manager.dart';
+import '../../shared/components/custom_elevated_button.dart';
+import '../../shared/components/custom_textformfiled.dart';
+import '../../shared/components/custome_image.dart';
+import '../../shared/font_manager.dart';
+
 
 class CompleteProfileScreen extends StatelessWidget {
   const CompleteProfileScreen({Key? key}) : super(key: key);
