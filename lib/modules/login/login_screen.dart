@@ -123,7 +123,7 @@ class LoginScreen extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    RowDividerWidget(),
+                    RowDividerWidget(text: 'او'),
                     SizedBox(
                       height: 40,
                     ),

@@ -4,9 +4,15 @@ import 'package:haraj_app/modules/login/login_screen.dart';
 import 'package:haraj_app/modules/splash/splash_screen.dart';
 import '../../shared/assets_manager.dart';
 import '../../shared/components/custom_textformfiled.dart';
+
 import '../filter/filter_screen.dart';
 import '../home/bn_screen.dart';
+import '../home/home_screen.dart';
 import '../product/details_ads_car_screen.dart';
+import '../product/gallery_page/gallery_page.dart';
+import '../product/gallery_page/widget/ads_gallery_widget.dart';
+import '../product/gallery_page/widget/empty_gallery_image_widget.dart';
+import '../product/gallery_page/widget/gallery_image_widget.dart';
 import '../register/register_screen.dart';
 import '../type_account/type_account_screen.dart';
 class MyApp extends StatelessWidget {
@@ -20,7 +26,8 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
 
-    home: DetailsAdsCarScreen(),
+     home: DetailsAdsCarScreen(),
+
     );
   }
 }

@@ -39,6 +39,7 @@ dependencies:
   easy_localization: ^3.0.2
   carousel_slider: ^4.2.1
   syncfusion_flutter_sliders: ^21.2.4
+  readmore: ^2.2.0
 
 dev_dependencies:
   flutter_test:

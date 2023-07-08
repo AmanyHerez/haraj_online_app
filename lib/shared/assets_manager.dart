@@ -40,5 +40,7 @@ class AssetsImage{
   static const String telphoneIcon="telphone_icon";
   static const String dollerIcon="doller_icon";
   static const String checkIcon="check_icon";
+  static const String map="map";
+  static const String emptyImage="image";
 
 }

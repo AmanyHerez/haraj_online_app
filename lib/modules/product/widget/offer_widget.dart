@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:haraj_app/shared/assets_manager.dart';
 import 'package:haraj_app/shared/components/custom_elevated_button.dart';
+import 'package:haraj_app/shared/components/custom_show_dialog.dart';
 import 'package:haraj_app/shared/components/custom_text.dart';
 import 'package:haraj_app/shared/components/custom_textformfiled.dart';
 import 'package:haraj_app/shared/components/custome_image.dart';
@@ -31,7 +32,9 @@ class OfferWidget extends StatelessWidget {
             SizedBox(height: 20,),
             CustomTextFomField(title: 'السعر الجديد بدرهم', iconNamePuffix: AssetsImage.dollerIcon),
             SizedBox(height: 40,),
-            CustomElevatedButton(text: 'تقديم عرض', onPressed: (){},bgColor: AppColor.primary,),
+            CustomElevatedButton(text: 'تقديم عرض', onPressed: (){
+              CustomDialog.ShowDialogFunction(context, 'تم ارسال العرض بنجاح');
+            },bgColor: AppColor.primary,),
             SizedBox(height: 20,),
             
           ],

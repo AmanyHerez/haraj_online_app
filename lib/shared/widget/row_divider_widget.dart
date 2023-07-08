@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:haraj_app/shared/components/custom_divider.dart';
 import 'package:haraj_app/shared/components/custom_text.dart';
 class RowDividerWidget extends StatelessWidget {
-  const RowDividerWidget({Key? key}) : super(key: key);
+ String text;
+ Color? color;
+
+
+ RowDividerWidget({required this.text,this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +18,7 @@ class RowDividerWidget extends StatelessWidget {
         SizedBox(
           width: 5,
         ),
-        CustomText(text: 'او',fontWeight: FontWeight.w500,),
+        CustomText(text: text,fontWeight: FontWeight.w500,color: color,),
         SizedBox(
           width: 5,
         ),

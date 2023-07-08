@@ -26,6 +26,7 @@ class ContactWidget extends StatelessWidget {
               text: 'يمكنك التواصل مع صاحب الحراج من خلال الدردشة المباشرة',
               maxLines: 2,
             ),
+            SizedBox(height: 18,),
             SizedBox(
               height: 50,
               child: ElevatedButton(
@@ -55,7 +56,7 @@ class ContactWidget extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20,),
-            RowDividerWidget(),
+            RowDividerWidget(text: 'او'),
             SizedBox(height: 20,),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

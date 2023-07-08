@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:haraj_app/modules/product/more_details_ads_bottom_sheet.dart';
 import 'package:haraj_app/modules/product/widget/contact_widget.dart';
+import 'package:haraj_app/modules/product/widget/details_widget.dart';
+import 'package:haraj_app/modules/product/widget/expanded_widget.dart';
 import 'package:haraj_app/modules/product/widget/instructions_widget.dart';
 import 'package:haraj_app/modules/product/widget/offer_widget.dart';
 import 'package:haraj_app/shared/components/custom_divider.dart';
@@ -11,6 +13,8 @@ import 'package:haraj_app/shared/style/color_manager.dart';
 
 import '../../shared/assets_manager.dart';
 import '../../shared/components/custome_image.dart';
+import '../../shared/widget/custom_tab_bar.dart';
+import 'gallery_page/widget/about_gallery_widget.dart';
 
 class DetailsAdsCarScreen extends StatefulWidget {
   const DetailsAdsCarScreen({Key? key}) : super(key: key);
@@ -20,12 +24,28 @@ class DetailsAdsCarScreen extends StatefulWidget {
 }
 
 class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
-  List<String> list = ['التفاصيل', 'التواصل', 'تقديم عروض', 'ارشادات'];
-  String selected = 'التفاصيل';
 
-  changeSelected(String select) {
-    selected = select;
-    setState(() {});
+
+
+
+
+  void toggleWidgetVisibility(int index) {
+    setState(() {
+      SelectedContainer.selectedContainerIndex = index;
+    });
+  }
+
+  Widget getSelectedWidget() {
+    switch ( SelectedContainer.selectedContainerIndex) {
+      case 0:
+        return DetailsWidget();
+      case 1:
+        return ContactWidget();
+      case 2:
+        return OfferWidget();
+      default:
+        return InstructionsWidget();
+    }
   }
 
   @override
@@ -58,13 +78,7 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                   SizedBox(
                     width: 100,
                   ),
-                  Text(
-                    'تفاصيل الاعلان',
-                    style: TextStyle(
-                        color: AppColor.black,
-                        fontFamily: FontConstants.fontFamily,
-                        fontSize: 18),
-                  ),
+                  CustomText(text: 'تفاصيل الاعلان',fontSize: 16,),
                   SizedBox(
                     width: 60,
                   ),
@@ -103,8 +117,8 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
               child: Column(
                 children: [
                   Container(
-                    height: 220,
                     width: double.infinity,
+                    height: 220,
                     padding: EdgeInsets.zero,
                     decoration: BoxDecoration(
                       color: AppColor.primary,
@@ -131,8 +145,16 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                               color: AppColor.white,
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: CustomSvgImage(
-                                imageName: AssetsImage.expandIcon),
+                            child: InkWell(
+                              onTap: (){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const ExpandedWidget()),
+                                );
+                              },
+                              child: CustomSvgImage(
+                                  imageName: AssetsImage.expandIcon),
+                            ),
                           ),
                           Container(
                             width: double.infinity,
@@ -175,7 +197,7 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                   ),
                   Row(
                     children: [
-                      CustomText(text: 'هيونداي اكسنت 2022 ستاندر'),
+                      CustomText(text: 'هيونداي اكسنت 2022 ستاندر',fontSize: 16,),
                       Spacer(),
                       CustomText(
                         text: '500000',
@@ -188,7 +210,7 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                     ],
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 18,
                   ),
                   Row(
                     children: [
@@ -208,7 +230,7 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          CustomText(text: "معرض النور لبيع و شراء السيارات"),
+                          CustomText(text: "معرض النور لبيع و شراء السيارات",fontWeight: FontWeight.w500,color: AppColor.primary,),
                           SizedBox(
                             height: 10,
                           ),
@@ -258,303 +280,22 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(color: AppColor.dividerGreyColor),
                     ),
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: list.length,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () {
-                            changeSelected(list[index]);
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              color: list[index] == selected
-                                  ? AppColor.primary
-                                  : Colors.transparent,
-                            ),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 10),
-                            margin: EdgeInsets.only(left: 4, right: 4),
-                            child: Center(
-                                child: Text(
-                              list[index],
-                              style: TextStyle(
-                                color: selected == list[index]
-                                    ? AppColor.white
-                                    : AppColor.grey,
-                                fontFamily: FontConstants.fontFamily,
-                              ),
-                            )),
-                          ),
-                        );
-                      },
+                    child: Row(
+                      children: [
+                        CustomTabBar((){toggleWidgetVisibility(0);}, "التفاصيل", 0),
+                        CustomTabBar((){toggleWidgetVisibility(1);}, "التواصل", 1),
+                        CustomTabBar((){toggleWidgetVisibility(2);}, "تقديم عرض", 2),
+                        CustomTabBar((){toggleWidgetVisibility(3);}, " ارشادات", 3),
+                      ],
                     ),
                   ),
                   SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColor.dividerGreyColor),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 12),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              SizedBox(
-                                  width: 120,
-                                  child: CustomText(
-                                    text: 'الفئة:',
-                                    color: AppColor.grey,
-                                    fontWeight: FontWeight.w300,
-                                  )),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              CustomText(
-                                text: 'STV Raptor',
-                                color: AppColor.black,
-                              ),
-
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          CustomeDivider(),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                  width: 120,
-                                  child: CustomText(
-                                    text: 'سنة الانتاج:',
-                                    fontWeight: FontWeight.w300,
-                                    color: AppColor.grey,
-                                  )),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              CustomText(
-                                text: ' 2014',
-                                color: AppColor.black,
-                              ),
-
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          CustomeDivider(),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                  width: 120,
-                                  child: CustomText(
-                                    text: 'كيلوميترات:',
-                                    fontWeight: FontWeight.w300,
-                                    color: AppColor.grey,
-                                  )),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              CustomText(
-                                text: '145000',
-                                color: AppColor.black,
-                              ),
-
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          CustomeDivider(),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                  width: 120,
-                                  child: CustomText(
-                                    text: 'نوع الجسم:',
-                                    fontWeight: FontWeight.w300,
-                                    color: AppColor.grey,
-                                  )),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              CustomText(
-                                text: 'شحنة نقل ',
-                                color: AppColor.black,
-                              ),
-
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          CustomeDivider(),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                  width: 120,
-                                  child: CustomText(
-                                    text: 'الحالة الميكانيكية:',
-                                    fontWeight: FontWeight.w300,
-                                    color: AppColor.grey,
-                                  )),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              CustomText(
-                                text: 'ممتازة ',
-                                color: AppColor.black,
-                              ),
-
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          CustomeDivider(),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                  width: 120,
-                                  child: CustomText(
-                                    text: 'نوع البائع:',
-                                    fontWeight: FontWeight.w300,
-                                    color: AppColor.grey,
-                                  )),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              CustomText(
-                                text: 'مالك السيارة ',
-                                fontWeight: FontWeight.w300,
-                                color: AppColor.black,
-                              ),
-
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          CustomeDivider(),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                  width: 120,
-                                  child: CustomText(
-                                    text: 'نوع الناقل:',
-                                    fontWeight: FontWeight.w300,
-                                    color: AppColor.grey,
-                                  )),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              CustomText(
-                                text: 'ناقل اتوماتيكي ',
-                                color: AppColor.black,
-                              ),
-
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          CustomeDivider(),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                  width: 120,
-                                  child: CustomText(
-                                    text: 'قوة المحرك:',
-                                    fontWeight: FontWeight.w300,
-                                    color: AppColor.grey,
-                                  )),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              CustomText(
-                                text: '400-500 حصان ',
-                                color: AppColor.black,
-                              ),
-
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          CustomeDivider(),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          CustomElevatedButton(
-                            text: 'المزيد',
-                            onPressed: () {
-                              showModalBottomSheet(
-                                context: context,
-                                // elevation: 10,
-                                enableDrag: true,
-                                isDismissible: false,
-                                barrierColor: AppColor.lightGrey,
-                                shape: RoundedRectangleBorder(
-                                  // <-- SEE HERE
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(25.0),
-                                  ),
-                                ),
-                                builder: (context) {
-                                  return MoreDetailsAdsBottomSheet();
-                                },
-                              );
-                            },
-                            bgColor: AppColor.white,
-                            bordercolor: AppColor.primary,
-                            colorText: AppColor.primary,
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                        ],
-                      ),
-                    ),
+                  Visibility(
+                    visible:  SelectedContainer.selectedContainerIndex != -1,
+                    child: getSelectedWidget(),
                   ),
-                  SizedBox(height: 10,),
-                  ContactWidget(),
-                  SizedBox(height: 10,),
-                  SizedBox(height: 10,),
-                  OfferWidget(),
-                  SizedBox(height: 10,),
-                  SizedBox(height: 10,),
-                  InstructionsWidget(),
                 ],
               ),
             ),
@@ -564,4 +305,24 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
       ),
     );
   }
+  // Widget buildContainer(Function() onTap,String title,int index){
+  //   return InkWell(
+  //     onTap:onTap,
+  //     child: Container(
+  //       decoration: BoxDecoration(
+  //         borderRadius: BorderRadius.circular(8),
+  //         color:selectedContainerIndex == index
+  //             ? AppColor.primary
+  //             : Colors.transparent,
+  //       ),
+  //       padding: EdgeInsets.symmetric(
+  //           horizontal: 8, vertical: 10),
+  //       margin: EdgeInsets.only(left: 4, right: 4),
+  //       child: Center(
+  //           child: CustomText(text: title, color: selectedContainerIndex == index
+  //               ? AppColor.white
+  //               : AppColor.grey,)),
+  //     ),
+  //   );
+  // }
 }
