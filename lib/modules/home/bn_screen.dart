@@ -49,27 +49,27 @@ class _MainScreenState extends State<MainScreen> {
         items: [
           BottomNavigationBarItem(
 
-            icon:CustomSvgImage(imageName: AssetsImage.homeIcon,),
+            icon:CustomSvgImage(imageName: _currentIndex==0?AssetsImage.fillHomeIcon:AssetsImage.homeIcon,),
             label: " ",
           ),
           BottomNavigationBarItem(
 
-            icon:CustomSvgImage(imageName: AssetsImage.favoriteIcon,),
+            icon:CustomSvgImage(imageName:_currentIndex==1?AssetsImage.fillIfavoriteIcon: AssetsImage.favoriteIcon,),
             label: " ",
           ),
           BottomNavigationBarItem(
 
-            icon:CustomSvgImage(imageName: AssetsImage.chatIcon,),
+            icon:CustomSvgImage(imageName:_currentIndex==2? AssetsImage.FillChatIcon: AssetsImage.chatIcon,),
             label: " ",
           ),
           BottomNavigationBarItem(
 
-            icon:CustomSvgImage(imageName: AssetsImage.searchIcon,),
+            icon:CustomSvgImage(imageName:_currentIndex==3? AssetsImage.fillSearchIcon :AssetsImage.searchIcon,),
             label: " ",
           ),
           BottomNavigationBarItem(
 
-            icon:CustomSvgImage(imageName: AssetsImage.profileIcon,),
+            icon:CustomSvgImage(imageName: _currentIndex==4?AssetsImage.fillProfileIcon: AssetsImage.profileIcon,),
             label: " ",
           ),
         ],

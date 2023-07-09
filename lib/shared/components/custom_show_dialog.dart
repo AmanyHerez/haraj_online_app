@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:haraj_app/shared/assets_manager.dart';
+import 'package:haraj_app/shared/components/custom_elevated_button.dart';
 import 'package:haraj_app/shared/components/custom_text.dart';
 import 'package:haraj_app/shared/components/custome_image.dart';
 import 'package:haraj_app/shared/style/color_manager.dart';
@@ -10,7 +11,6 @@ class CustomDialog {
       context: context,
       builder: (context) {
         return AlertDialog(
-
           backgroundColor: AppColor.white,
           title: CustomSvgImage(
             imageName: AssetsImage.checkIcon,
@@ -26,15 +26,88 @@ class CustomDialog {
               ),
             ],
           ),
-
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(18),
             ),
           ),
-      titlePadding: EdgeInsets.only(top: 79,right: 20,left: 20),
-          contentPadding: EdgeInsets.only(top: 20,right: 20,left: 20,bottom: 75),
+          titlePadding: EdgeInsets.only(top: 79, right: 20, left: 20),
+          contentPadding:
+              EdgeInsets.only(top: 20, right: 20, left: 20, bottom: 75),
+        );
+      },
+    );
+  }
 
+  static customShowDialogFunction(BuildContext context, String content) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: AppColor.white,
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 100,
+                height: 100,
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: AppColor.containerGreyColor,
+                ),
+                child: CustomSvgImage(
+                  imageName: AssetsImage.deleteIcon,
+                  width: 38,
+                  height: 43,
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomText(
+                    text: content,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 42,
+              ),
+              Row(
+                children: [
+                  CustomElevatedButton(
+                    text: 'نعم',
+                    onPressed: () {
+                      Navigator.pop(context);
+                      CustomDialog.ShowDialogFunction(context,'تمت');
+                    },
+                    width: 120,
+                    colorText: AppColor.primary,
+                    bgColor: AppColor.white,
+                  ),
+                  SizedBox(
+                    width: 16,
+                  ),
+                  CustomElevatedButton(
+                    text: 'لا ',
+                    onPressed: () {},
+                    width: 120,
+                    colorText: AppColor.white,
+                    bgColor: AppColor.primary,
+                  ),
+                ],
+              )
+            ],
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(18),
+            ),
+          ),
         );
       },
     );

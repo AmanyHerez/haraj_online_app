@@ -5,6 +5,7 @@ import 'package:haraj_app/shared/components/custom_text.dart';
 import 'package:haraj_app/shared/components/custome_image.dart';
 import 'package:haraj_app/shared/widget/social_container_widget.dart';
 
+import '../../../shared/components/custom_elevated_button_icon_text.dart';
 import '../../../shared/style/color_manager.dart';
 import '../../../shared/widget/row_divider_widget.dart';
 
@@ -26,44 +27,24 @@ class ContactWidget extends StatelessWidget {
               text: 'يمكنك التواصل مع صاحب الحراج من خلال الدردشة المباشرة',
               maxLines: 2,
             ),
-            SizedBox(height: 18,),
             SizedBox(
-              height: 50,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomSvgImage(
-                      imageName: AssetsImage.chat,
-                      width: 20,
-                      height: 20,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    CustomText(text: 'الدردشة',color: AppColor.white,fontWeight: FontWeight.w500,fontSize: 16,)
-                  ],
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor:  AppColor.primary,
-
-
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                ),
-              ),
+              height: 18,
             ),
-            SizedBox(height: 20,),
+            CustomElevatedButtonRowIconText(
+                imageName: AssetsImage.chat,
+                text: 'الدردشة ',
+                onPressed: () {}),
+            SizedBox(
+              height: 20,
+            ),
             RowDividerWidget(text: 'او'),
-            SizedBox(height: 20,),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SocialContainer(nameIcon: AssetsImage.twiterIcon),
-            SocialContainer(nameIcon: AssetsImage.whatsappIcon),
-            SocialContainer(nameIcon: AssetsImage.telphoneIcon),
+            SizedBox(
+              height: 20,
+            ),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              SocialContainer(nameIcon: AssetsImage.twiterIcon),
+              SocialContainer(nameIcon: AssetsImage.whatsappIcon),
+              SocialContainer(nameIcon: AssetsImage.telphoneIcon),
             ]),
           ],
         ),

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:haraj_app/shared/components/custom_text.dart';
 
-import '../../../shared/assets_manager.dart';
-import '../../../shared/components/custome_image.dart';
-import '../../../shared/font_manager.dart';
-import '../../../shared/style/color_manager.dart';
+import '../assets_manager.dart';
+import '../components/custome_image.dart';
+import '../font_manager.dart';
+import '../style/color_manager.dart';
 
-class AdsHomeWidget extends StatelessWidget {
-  const AdsHomeWidget({Key? key}) : super(key: key);
+class AdsItemWidget extends StatelessWidget {
+  const AdsItemWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-       //height: 300,
+      //height: 300,
       decoration: BoxDecoration(
         color: AppColor.white,
         borderRadius: BorderRadius.circular(6),
@@ -22,9 +22,11 @@ class AdsHomeWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            width: 180,
+            width: double.infinity,
             height: 140,
             decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(6), topRight: Radius.circular(6)),
               image: DecorationImage(
                 image: AssetImage(
                   "assets/images/${AssetsImage.car}.png",
@@ -86,7 +88,9 @@ class AdsHomeWidget extends StatelessWidget {
                 CustomText(
                   text: 'توسان اكسنت 2023',
                 ),
-                SizedBox(height: 8,),
+                SizedBox(
+                  height: 8,
+                ),
                 Row(
                   children: [
                     CustomText(
@@ -101,7 +105,9 @@ class AdsHomeWidget extends StatelessWidget {
                         color: AppColor.green),
                   ],
                 ),
-                SizedBox(height: 8,),
+                SizedBox(
+                  height: 8,
+                ),
                 RichText(
                   text: TextSpan(
                       text: '50000',
@@ -117,7 +123,9 @@ class AdsHomeWidget extends StatelessWidget {
                         )
                       ]),
                 ),
-                SizedBox(height: 8,),
+                SizedBox(
+                  height: 8,
+                ),
                 Divider(
                     height: 1,
                     color: AppColor.dividerGreyColor,
@@ -146,7 +154,11 @@ class AdsHomeWidget extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    CustomText(text: 'معرض النور لبيع ...',fontWeight: FontWeight.w300,fontSize: 12,),
+                    CustomText(
+                      text: 'معرض النور لبيع ...',
+                      fontWeight: FontWeight.w300,
+                      fontSize: 12,
+                    ),
                   ],
                 ),
               ],

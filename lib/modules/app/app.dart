@@ -5,6 +5,7 @@ import 'package:haraj_app/modules/splash/splash_screen.dart';
 import '../../shared/assets_manager.dart';
 import '../../shared/components/custom_textformfiled.dart';
 
+import '../favorite/favorite_screen.dart';
 import '../filter/filter_screen.dart';
 import '../home/bn_screen.dart';
 import '../home/home_screen.dart';
@@ -14,6 +15,8 @@ import '../product/gallery_page/widget/ads_gallery_widget.dart';
 import '../product/gallery_page/widget/empty_gallery_image_widget.dart';
 import '../product/gallery_page/widget/gallery_image_widget.dart';
 import '../register/register_screen.dart';
+import '../search/result_search/result_search_screen.dart';
+import '../search/search_list_screen.dart';
 import '../type_account/type_account_screen.dart';
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
 
-     home: DetailsAdsCarScreen(),
+     home: MainScreen(),
 
     );
   }

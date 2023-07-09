@@ -56,6 +56,7 @@ class SelectCityBottomSheet extends StatelessWidget {
               title: 'ابحث عن اسم المدينة',
               iconNamePuffix: AssetsImage.searchIcon,
               fillColor: Color(0xFFF9F9F9),
+              floatingLabelBehavior: FloatingLabelBehavior.never,
             ),
             CustomeDivider(),
             ListView.separated(

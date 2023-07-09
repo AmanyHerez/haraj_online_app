@@ -11,64 +11,83 @@ class CustomTextFomField extends StatelessWidget {
   final String title;
   final String? errorTitle;
   final double? fontSize;
-    final  String? iconNameSuffix;
+  final double? radius;
+  final String? iconNameSuffix;
   final String iconNamePuffix;
   final String? fontFamily;
   final FontWeight? fontWeight;
   final Function? validator;
   final Function? onFieldSubmitted;
+  FloatingLabelBehavior? floatingLabelBehavior;
   Color? color;
   Color? fillColor;
   int? maxline;
+
   CustomTextFomField(
       {required this.title,
-         this.validator,
-        this.onFieldSubmitted,
-         this.controller,
-        this.suffix,
-        this.prefix,
-        this.iconNameSuffix,
-        required this.iconNamePuffix,
-        this.fontFamily,
-        this.errorTitle,
-
-        this.color,
-        this.fillColor,
-        this.fontSize,
-        this.maxline,
-        this.fontWeight,
-        this.textInputType});
+      this.validator,
+      this.onFieldSubmitted,
+      this.controller,
+      this.suffix,
+      this.prefix,
+      this.iconNameSuffix,
+      this.radius,
+      required this.iconNamePuffix,
+      this.fontFamily,
+      this.errorTitle,
+      this.floatingLabelBehavior,
+      this.color,
+      this.fillColor,
+      this.fontSize,
+      this.maxline,
+      this.fontWeight,
+      this.textInputType});
 
   @override
   Widget build(BuildContext context) {
-    return  TextFormField(
+    return TextFormField(
       cursorColor: AppColor.primary,
       decoration: InputDecoration(
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(6.0),
+            borderRadius: BorderRadius.circular(radius??6.0),
             borderSide: BorderSide.none,
           ),
           labelText: title,
-          labelStyle: const TextStyle(color: AppColor.grey,fontFamily: FontConstants.fontFamily),
-          floatingLabelStyle:
-          const TextStyle(height:7, color: AppColor.grey,fontFamily: FontConstants.fontFamily),
+          floatingLabelBehavior: floatingLabelBehavior,
+          labelStyle: TextStyle(
+              color: AppColor.grey,
+              fontFamily: FontConstants.fontFamily,
+              fontSize: fontSize ?? 14,
+              fontWeight: fontWeight ?? FontWeight.w400),
+          floatingLabelStyle: const TextStyle(
+              height: 7,
+              color: AppColor.grey,
+              fontFamily: FontConstants.fontFamily,
+              fontSize: 12,
+              fontWeight: FontWeight.w400),
           filled: true,
-          fillColor: fillColor ??AppColor.fillgrey,
-
+          fillColor: fillColor ?? AppColor.fillgrey,
           prefixIcon: Container(
             width: 50,
             height: 60,
             padding: EdgeInsets.all(12),
-            margin: EdgeInsets.only(left: 8,),
-            decoration: BoxDecoration(
-              border: Border(left: BorderSide(color: AppColor.dividerGreyColor),),
+            margin: EdgeInsets.only(
+              left: 8,
             ),
-            child: CustomSvgImage(imageName: iconNamePuffix, height: 16, width: 16),
+            decoration: BoxDecoration(
+              border: Border(
+                left: BorderSide(color: AppColor.dividerGreyColor),
+              ),
+            ),
+            child: CustomSvgImage(
+                imageName: iconNamePuffix, height: 16, width: 16),
           ),
-          suffixIcon:suffix,
-          errorText: errorTitle,errorStyle: TextStyle(color: AppColor.error,fontFamily: FontConstants.fontFamily,)
-
-      ),
+          suffixIcon: suffix,
+          errorText: errorTitle,
+          errorStyle: TextStyle(
+            color: AppColor.error,
+            fontFamily: FontConstants.fontFamily,
+          )),
     );
   }
 }

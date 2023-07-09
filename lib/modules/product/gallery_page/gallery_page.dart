@@ -8,6 +8,8 @@ import '../../../shared/components/custom_text.dart';
 import '../../../shared/components/custome_image.dart';
 import '../../../shared/style/color_manager.dart';
 import '../../../shared/widget/custom_tab_bar.dart';
+import '../../favorite/widget/process_search_saved_item.dart';
+import '../../favorite/widget/prosses_saved_search.dart';
 class GalleryPageView extends StatefulWidget {
   const GalleryPageView({Key? key}) : super(key: key);
 
@@ -58,10 +60,15 @@ class _GalleryPageViewState extends State<GalleryPageView> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(12.0),
-                    child: CustomSvgImage(
-                      imageName: AssetsImage.arrowIcon,
-                      width: 8,
-                      height: 13,
+                    child: InkWell(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: CustomSvgImage(
+                        imageName: AssetsImage.arrowIcon,
+                        width: 8,
+                        height: 13,
+                      ),
                     ),
                   ),
                   Spacer(),

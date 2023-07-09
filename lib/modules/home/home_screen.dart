@@ -1,11 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:haraj_app/modules/home/widget/ads_home_widget.dart';
+import 'package:haraj_app/shared/widget/ads_item_widget.dart';
 import 'package:haraj_app/shared/assets_manager.dart';
 import 'package:haraj_app/shared/components/custome_image.dart';
 import 'package:haraj_app/shared/font_manager.dart';
 import 'package:haraj_app/shared/style/color_manager.dart';
+
+import '../../shared/components/custom_text.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,44 +16,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        title: Text(
-          'اهلا و سهلا بك ',
-          style: TextStyle(color: AppColor.black),
-        ),
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        leading: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: CustomSvgImage(
-            imageName: AssetsImage.filterIcon,
-            width: 18,
-            height: 18,
-          ),
-        ),
-        actions: [
-          Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CustomSvgImage(
-                  imageName: AssetsImage.notificateIcon,
-                  width: 25,
-                  height: 25,
-                ),
-              ),
-              Positioned(
-                  top: 10,
-                  right: 10,
-                  child: CircleAvatar(
-                    backgroundColor: AppColor.primary,
-                    radius: 5,
-                  ))
-            ],
-          )
-        ],
-      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,7 +34,41 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 80,
+                    height: 40,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Row(
+                      children: [
+                        CustomSvgImage(
+                          imageName: AssetsImage.filterIcon,
+                          width: 18,
+                          height: 18,
+                        ),
+                        Spacer(),
+                        CustomText(text: 'أهلاً وسهلاً بك ',fontSize: 16,fontWeight: FontWeight.w800,),
+                        Spacer(),
+                        Stack(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: CustomSvgImage(
+                                imageName: AssetsImage.notificateIcon,
+                                width: 25,
+                                height: 25,
+                              ),
+                            ),
+                            Positioned(
+                                top: 10,
+                                right: 10,
+                                child: CircleAvatar(
+                                  backgroundColor: AppColor.primary,
+                                  radius: 5,
+                                ))
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                   Container(
                     child: CarouselSlider(
@@ -94,7 +92,8 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('الاعلانات',style: TextStyle(fontFamily: FontConstants.fontFamily,fontSize: 18),),
+                  CustomText(text:'الاعلانات',fontWeight: FontWeight.w500,fontSize: 16,),
+
                   SizedBox(height: 8,),
                   GridView.builder(
                     padding: EdgeInsets.zero,
@@ -107,7 +106,7 @@ class HomeScreen extends StatelessWidget {
                       childAspectRatio: 0.58,
                     ),
                     itemBuilder: (context, index) {
-                      return AdsHomeWidget();
+                      return AdsItemWidget();
                     },
                     itemCount: 6,
                   ),

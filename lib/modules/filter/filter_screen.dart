@@ -5,10 +5,10 @@ import 'package:haraj_app/shared/components/custom_divider.dart';
 import 'package:haraj_app/shared/components/custom_elevated_button.dart';
 import 'package:haraj_app/shared/font_manager.dart';
 import 'package:haraj_app/shared/style/color_manager.dart';
-import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 import '../../shared/assets_manager.dart';
 import '../../shared/components/custome_image.dart';
+import '../../shared/widget/filter_and_search_item_widget.dart';
 import 'bottom_sheet/select_city_bottom_sheet.dart';
 import 'bottom_sheet/status_mac_car_bottom_sheet.dart';
 import 'bottom_sheet/type_car_bottom_sheet.dart';
@@ -113,23 +113,23 @@ class _FilterScreenState extends State<FilterScreen> {
                           SizedBox(
                             height: 10,
                           ),
-                          BuildFilterWidget(
+                          FilterAndSearchItemWidget(
                               title: 'موديل السيارة',
                               iconName: AssetsImage.modelCarIcon,
                               widget: TypeCarBottomSheet()),
-                          BuildFilterWidget(
+                          FilterAndSearchItemWidget(
                               title: 'المدينة ',
                               iconName: AssetsImage.cityIcon,
                               widget: SelectCityBottomSheet()),
-                          BuildFilterWidget(
+                          FilterAndSearchItemWidget(
                               title: ' نوع الوقود',
                               iconName: AssetsImage.fuelIcon,
                               widget: TypeFuelBottomSheet()),
-                          BuildFilterWidget(
+                          FilterAndSearchItemWidget(
                               title: ' الحالة الميكانيكية لسيارة',
                               iconName: AssetsImage.macCarIcon,
                               widget: StatusMacCarBottomSheet()),
-                          BuildFilterWidget(
+                          FilterAndSearchItemWidget(
                               title: ' سنة الانتاج',
                               iconName: AssetsImage.yearIcon,
                               widget: YearProductionCarBottomSheet()),
@@ -195,62 +195,62 @@ class _FilterScreenState extends State<FilterScreen> {
     );
   }
 
-  Widget BuildFilterWidget(
-      {required String iconName,
-      required String title,
-      required Widget widget}) {
-    return Container(
-      height: 60,
-      margin: EdgeInsets.only(bottom: 10, top: 10),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6),
-          border: Border.all(
-            color: AppColor.dividerGreyColor,
-          )),
-      child: Row(
-        children: [
-          Container(
-            height: 60,
-            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-            decoration: BoxDecoration(
-                border: Border(
-                    left: BorderSide(
-              color: AppColor.dividerGreyColor,
-            ))),
-            child: CustomSvgImage(imageName: iconName),
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Text(
-            title,
-            style: TextStyle(
-                fontFamily: FontConstants.fontFamily, color: AppColor.grey),
-          ),
-          Spacer(),
-          IconButton(
-            onPressed: () {
-              showModalBottomSheet(
-                context: context,
-                // elevation: 10,
-                enableDrag: true,
-                isDismissible: false,
-                barrierColor: AppColor.lightGrey,
-                shape: RoundedRectangleBorder(
-                  // <-- SEE HERE
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(25.0),
-                  ),
-                ),
-                builder: (context) {
-                  return widget;
-                },
-              );
-            },
-            icon: Icon(Icons.arrow_back_ios_new_outlined),
-          ),
-        ],
-      ),
-    );
-  }
+//   Widget BuildFilterWidget(
+//       {required String iconName,
+//       required String title,
+//       required Widget widget}) {
+//     return Container(
+//       height: 60,
+//       margin: EdgeInsets.only(bottom: 10, top: 10),
+//       decoration: BoxDecoration(
+//           borderRadius: BorderRadius.circular(6),
+//           border: Border.all(
+//             color: AppColor.dividerGreyColor,
+//           )),
+//       child: Row(
+//         children: [
+//           Container(
+//             height: 60,
+//             padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+//             decoration: BoxDecoration(
+//                 border: Border(
+//                     left: BorderSide(
+//               color: AppColor.dividerGreyColor,
+//             ))),
+//             child: CustomSvgImage(imageName: iconName),
+//           ),
+//           SizedBox(
+//             width: 10,
+//           ),
+//           Text(
+//             title,
+//             style: TextStyle(
+//                 fontFamily: FontConstants.fontFamily, color: AppColor.grey),
+//           ),
+//           Spacer(),
+//           IconButton(
+//             onPressed: () {
+//               showModalBottomSheet(
+//                 context: context,
+//                 // elevation: 10,
+//                 enableDrag: true,
+//                 isDismissible: false,
+//                 barrierColor: AppColor.lightGrey,
+//                 shape: RoundedRectangleBorder(
+//                   // <-- SEE HERE
+//                   borderRadius: BorderRadius.vertical(
+//                     top: Radius.circular(25.0),
+//                   ),
+//                 ),
+//                 builder: (context) {
+//                   return widget;
+//                 },
+//               );
+//             },
+//             icon: Icon(Icons.arrow_back_ios_new_outlined),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
 }

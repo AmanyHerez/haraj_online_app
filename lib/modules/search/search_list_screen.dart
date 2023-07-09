@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:haraj_app/modules/search/widget/like_ads_item.dart';
 import 'package:haraj_app/modules/search/widget/like_ads_widget.dart';
+import 'package:haraj_app/modules/search/widget/search_list_item.dart';
 import 'package:haraj_app/shared/components/custom_divider.dart';
 import 'package:haraj_app/shared/components/custom_elevated_button.dart';
 import 'package:haraj_app/shared/components/custom_textformfiled.dart';
+import 'package:haraj_app/shared/components/custome_image.dart';
 import 'package:haraj_app/shared/style/color_manager.dart';
 
 import '../../shared/assets_manager.dart';
@@ -17,8 +19,8 @@ import '../filter/bottom_sheet/type_car_bottom_sheet.dart';
 import '../filter/bottom_sheet/type_fuel_bottom_sheet.dart';
 import '../filter/bottom_sheet/year_production_car_bottom_sheet.dart';
 
-class SearchScreen extends StatelessWidget {
-  const SearchScreen({Key? key}) : super(key: key);
+class SearchListScreen extends StatelessWidget {
+  const SearchListScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,13 +60,14 @@ class SearchScreen extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child:     CustomTextFomField(
+                    child: CustomTextFomField(
                       title: 'ابحث عن حراج او صاحب حراج سيارة ....',
                       fillColor: AppColor.white,
                       fontSize: 12,
                       fontWeight: FontWeight.w300,
                       iconNamePuffix: AssetsImage.searchIcon,
-                      floatingLabelBehavior: FloatingLabelBehavior.never,),
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                    ),
                   )
                 ],
               ),
@@ -72,66 +75,35 @@ class SearchScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            color: AppColor.dividerGreyColor,
-                          )),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CustomText(
-                              text: 'ابحث عن سيارات حسب... ',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w300,
-                              color: AppColor.grey,
-                            ),
-                            FilterAndSearchItemWidget(
-                                title: 'موديل السيارة',
-                                iconName: AssetsImage.modelCarIcon,
-                                widget: TypeCarBottomSheet()),
-                            FilterAndSearchItemWidget(
-                                title: 'المدينة ',
-                                iconName: AssetsImage.cityIcon,
-                                widget: SelectCityBottomSheet()),
-                            FilterAndSearchItemWidget(
-                                title: ' نوع الوقود',
-                                iconName: AssetsImage.fuelIcon,
-                                widget: TypeFuelBottomSheet()),
-                            SizedBox(height: 16,),
-                            CustomElevatedButtonRowIconText(imageName: AssetsImage.searchIcon,text:'بحث ',onPressed: (){}),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 24,
-                    ),
-                    CustomeDivider(),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    CustomText(
-                      text: 'اعلانات قد تعجبك',
-                      fontSize: 16,
-                    ),
-                  ]),
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      CustomSvgImage(imageName: AssetsImage.searchIcon),
+                      SizedBox(width: 5,),
+                      CustomText(text: 'عمليات البحت الاخيرة',color: AppColor.grey,),
+                      Spacer(),
+                      Icon(Icons.close,size: 16,color: AppColor.error,),
+                      CustomText(text: 'حذف',color: AppColor.error,fontSize: 12,)
+                    ],
+                  ),
+                  ListView.separated(
+                    itemBuilder: (context, index) {
+                      return CustomeDivider();
+                    },
+                    separatorBuilder: (context, index) {
+                      return SearchListItem();
+                    },
+                    itemCount: 8,
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               height: 12,
             ),
-            LikeAdsWidget(),
-
           ],
         ),
       ),
