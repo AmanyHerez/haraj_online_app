@@ -7,6 +7,7 @@ import 'package:haraj_app/shared/components/custome_image.dart';
 import 'package:haraj_app/shared/font_manager.dart';
 import 'package:haraj_app/shared/style/color_manager.dart';
 
+import '../../route/routes.dart';
 import '../../shared/components/custom_text.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -37,13 +38,18 @@ class HomeScreen extends StatelessWidget {
                     height: 40,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 18),
                     child: Row(
                       children: [
-                        CustomSvgImage(
-                          imageName: AssetsImage.filterIcon,
-                          width: 18,
-                          height: 18,
+                        InkWell(
+                          onTap:(){
+                            Navigator.pushNamed(context, AppRoutes.FILTER);
+                          },
+                          child: CustomSvgImage(
+                            imageName: AssetsImage.filterIcon,
+                            width: 18,
+                            height: 18,
+                          ),
                         ),
                         Spacer(),
                         CustomText(text: 'أهلاً وسهلاً بك ',fontSize: 16,fontWeight: FontWeight.w800,),

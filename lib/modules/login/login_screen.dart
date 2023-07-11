@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:haraj_app/route/routes.dart';
 import 'package:haraj_app/shared/assets_manager.dart';
 import 'package:haraj_app/shared/components/custom_elevated_button.dart';
 import 'package:haraj_app/shared/components/custome_image.dart';
 import 'package:haraj_app/shared/font_manager.dart';
 import 'package:haraj_app/shared/style/color_manager.dart';
 
+import '../../shared/components/custom_text.dart';
 import '../../shared/components/custom_textformfiled.dart';
 import '../../shared/widget/row_divider_widget.dart';
 import '../../shared/widget/social_container_widget.dart';
@@ -38,7 +40,7 @@ class LoginScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(14.0),
                   child: Column(
                     children: [
-                      SizedBox(
+                    const  SizedBox(
                         height: 60,
                       ),
                       CustomSvgImage(
@@ -46,7 +48,7 @@ class LoginScreen extends StatelessWidget {
                         height: 95,
                         width: 131,
                       ),
-                      SizedBox(
+                    const  SizedBox(
                         height: 30,
                       ),
                       CustomTextFomField(
@@ -54,7 +56,7 @@ class LoginScreen extends StatelessWidget {
                         iconNamePuffix: AssetsImage.EmailIcon,
                         // errorTitle: 'الرجاء ادخال البريد الالكتروني',
                       ),
-                      SizedBox(
+                    const  SizedBox(
                         height: 20,
                       ),
                       CustomTextFomField(
@@ -63,28 +65,38 @@ class LoginScreen extends StatelessWidget {
                         // errorTitle: 'الرجاء ادخال البريد الالكتروني',
                         suffix: Icon(Icons.remove_red_eye),
                       ),
-                      SizedBox(
+                   const   SizedBox(
                         height: 10,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text(
-                            'هل نسيت كلمة المرور ؟',
-                            style: TextStyle(color: AppColor.grey),
+                          InkWell(
+                            onTap:(){},
+                            child: CustomText(text:
+                              'هل نسيت كلمة المرور ؟',color: AppColor.grey
+
+                            ),
                           )
                         ],
                       ),
-                      SizedBox(
+                    const  SizedBox(
                         height: 20,
                       ),
-                      CustomElevatedButton(text: 'تسجيل الدخول', onPressed: () {}),
-                      SizedBox(
+                      CustomElevatedButton(text: 'تسجيل الدخول', onPressed: () {
+                        Navigator.pushNamed(context, AppRoutes.HOME);
+                      }),
+                   const   SizedBox(
                         height: 20,
                       ),
-                      Text(
-                        ' تسجيل جديد',
-                        style: TextStyle(color: AppColor.primary),
+                      InkWell(
+                        onTap:(){
+                          Navigator.pushNamed(context, AppRoutes.REGISTER);
+                        },
+                        child: Text(
+                          ' تسجيل جديد',
+                          style: TextStyle(color: AppColor.primary),
+                        ),
                       ),
                     ],
                   ),

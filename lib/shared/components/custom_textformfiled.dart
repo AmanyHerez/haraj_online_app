@@ -76,7 +76,7 @@ class CustomTextFomField extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               border: Border(
-                left: BorderSide(color: AppColor.dividerGreyColor),
+                left: BorderSide(color: Color(0xFFD0D0D0)),
               ),
             ),
             child: CustomSvgImage(

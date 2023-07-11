@@ -7,6 +7,8 @@ class AssetsImage {
   static const String visibleEye = "visible_eye";
   static const String twiterIcon = "twiter";
   static const String facebookIcon = "facebook";
+  static const String instagramIcon = "instagram_icon";
+  static const String telegram = "telegram";
   static const String googleIcon = "google";
   static const String arrowIcon = "arrow";
   static const String exclamationIcon = "exclamation_icon";
@@ -45,7 +47,18 @@ class AssetsImage {
   static const String checkIcon = "check_icon";
   static const String emptyImage = "image";
   static const String deleteIcon = "delete_icon";
+  static const String editIcon = "edit_icon";
   static const String emptySearchIcon = "empty_search_icon";
+  static const String offerIcon = "offer_icon";
+  static const String logoutIcon = "logout_icon";
+  static const String aboutIcon = "about_icon";
+  static const String howIcon = "how_icon";
+  static const String connectionIcon = "connection_icon";
+  static const String shareIcon = "share_icon";
+  static const String privacyIcon = "privacy_icon";
+  static const String termsIcon = "terms_icon";
+  static const String settingIcon = "setting_icon";
+  static const String deleteUser = "delete_user";
 
   //image for testing
 
@@ -55,4 +68,5 @@ class AssetsImage {
   static const String image = "image";
   static const String map = "map";
   static const String Slider = "Slider";
+  static const String person = "person";
 }

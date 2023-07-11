@@ -3,6 +3,7 @@ import 'package:haraj_app/modules/filter/widget/sec_section_filter_widget.dart';
 import 'package:haraj_app/modules/filter/widget/third_section_filter_widget.dart';
 import 'package:haraj_app/shared/components/custom_divider.dart';
 import 'package:haraj_app/shared/components/custom_elevated_button.dart';
+import 'package:haraj_app/shared/components/custom_text.dart';
 import 'package:haraj_app/shared/font_manager.dart';
 import 'package:haraj_app/shared/style/color_manager.dart';
 
@@ -66,23 +67,22 @@ class _FilterScreenState extends State<FilterScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(12.0),
-                    child: CustomSvgImage(
-                      imageName: AssetsImage.arrowIcon,
-                      width: 8,
-                      height: 13,
+                    child: InkWell(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: CustomSvgImage(
+                        imageName: AssetsImage.arrowIcon,
+                        width: 8,
+                        height: 13,
+                      ),
                     ),
                   ),
                   SizedBox(
                     width: 150,
                   ),
-                  Text(
-                    'الفلتر',
-                    style: TextStyle(
-                      color: AppColor.black,
-                      fontFamily: FontConstants.fontFamily,
-                      fontSize: 18
-                    ),
-                  ),
+                  CustomText(text:  'الفلتر',fontSize: 18),
+
                 ],
               ),
             ),

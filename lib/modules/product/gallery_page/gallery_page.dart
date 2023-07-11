@@ -115,7 +115,7 @@ class _GalleryPageViewState extends State<GalleryPageView> {
           ],
         ),
       ),
-    );;
+    );
   }
 }
 

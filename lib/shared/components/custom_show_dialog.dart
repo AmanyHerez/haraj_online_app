@@ -39,7 +39,8 @@ class CustomDialog {
     );
   }
 
-  static customShowDialogFunction(BuildContext context, String content) {
+  static customShowDialogFunction(BuildContext context, String content,String imageName,
+      {Color? color, String? text1, String? text2,int? maxline,FontWeight? fontWeight}) {
     return showDialog(
       context: context,
       builder: (context) {
@@ -54,12 +55,13 @@ class CustomDialog {
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: AppColor.containerGreyColor,
+                  color: AppColor.showDilogContainerColor,
                 ),
                 child: CustomSvgImage(
-                  imageName: AssetsImage.deleteIcon,
+                  imageName: imageName,
                   width: 38,
                   height: 43,
+                  color: color??AppColor.primary,
                 ),
               ),
               SizedBox(
@@ -68,9 +70,13 @@ class CustomDialog {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CustomText(
-                    text: content,
-                    fontWeight: FontWeight.w500,
+                  SizedBox(
+                    width: 262,
+                    child: CustomText(
+                      text: content,
+                      fontWeight:fontWeight ??FontWeight.w500,
+                      maxLines: maxline,
+                    ),
                   ),
                 ],
               ),
@@ -80,7 +86,7 @@ class CustomDialog {
               Row(
                 children: [
                   CustomElevatedButton(
-                    text: 'نعم',
+                    text: text1 ?? 'نعم',
                     onPressed: () {
                       Navigator.pop(context);
                       CustomDialog.ShowDialogFunction(context,'تمت');
@@ -88,12 +94,13 @@ class CustomDialog {
                     width: 120,
                     colorText: AppColor.primary,
                     bgColor: AppColor.white,
+                    bordercolor: AppColor.primary,
                   ),
                   SizedBox(
                     width: 16,
                   ),
                   CustomElevatedButton(
-                    text: 'لا ',
+                    text: text2 ??'لا ',
                     onPressed: () {},
                     width: 120,
                     colorText: AppColor.white,

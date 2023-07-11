@@ -88,7 +88,7 @@ class ProcessSearchSavedItem extends StatelessWidget {
               ),
               child: InkWell(
                 onTap: (){
-                  CustomDialog.customShowDialogFunction(context, 'هل انت متاكد من انك تريد حذف الاعلان ؟ ');
+                  CustomDialog.customShowDialogFunction(context, 'هل انت متاكد من انك تريد حذف الاعلان ؟ ',AssetsImage.deleteIcon);
                 },
                 child: Icon(
                   Icons.favorite,

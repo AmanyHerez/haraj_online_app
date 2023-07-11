@@ -12,5 +12,13 @@ class AppColor{
   static const Color dividerGreyColor=Color(0xFFA6B6BE);
   static const Color containerGreyColor=Color(0xFFE2E2E2);
   static const Color darkGreyColor=Color(0xFF535353);
+  static const Color showDilogContainerColor=Color(0xFFF0F0F0);
+  static const Color blue=Color(0xFF2AACDF);
+  static const Color greenWhatsup=Color(0xFF55CD6C);
+  static const Color pink=Color(0xFFC737BD);
+  static const Color colorfacebook=Color(0xFF395185);
+
+  static final containerBottomSheetColor = const Color(0xFF9A9A9A).withOpacity(.05);
+
 
 }

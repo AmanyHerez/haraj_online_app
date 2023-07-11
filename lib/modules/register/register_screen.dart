@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:haraj_app/route/routes.dart';
 import 'package:haraj_app/shared/assets_manager.dart';
 import 'package:haraj_app/shared/components/custom_elevated_button.dart';
 import 'package:haraj_app/shared/components/custome_image.dart';
@@ -38,7 +39,7 @@ class RegisterScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(14.0),
                   child: Column(
                     children: [
-                 SizedBox(height:20,),
+              const   SizedBox(height:20,),
 
                       Container(
                         width: double.infinity,
@@ -96,14 +97,13 @@ class RegisterScreen extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      CustomElevatedButton(text: 'انشاء حساب', onPressed: () {}),
+                      CustomElevatedButton(text: 'انشاء حساب', onPressed: () {
+                        Navigator.pushNamed(context, AppRoutes.HOME);
+                      }),
                       SizedBox(
                         height: 20,
                       ),
-                      Text(
-                        ' تسجيل جديد',
-                        style: TextStyle(color: AppColor.primary),
-                      ),
+
                     ],
                   ),
                 ),

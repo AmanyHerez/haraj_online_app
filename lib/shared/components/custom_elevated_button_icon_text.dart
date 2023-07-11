@@ -40,7 +40,7 @@ class CustomElevatedButtonRowIconText extends StatelessWidget {
       height: height??50,
       width: width,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed:onPressed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

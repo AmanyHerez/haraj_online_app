@@ -126,7 +126,7 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                       image: DecorationImage(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                          "assets/images/${AssetsImage.car}.png",
+                          "assets/images/${AssetsImage.Slider}.png",
                         ),
                       ),
                     ),
@@ -178,7 +178,7 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                                     color: AppColor.primary,
                                     borderRadius: BorderRadius.circular(4),
                                   ),
-                                  child: CustomPngImage(imageName: AssetsImage.car,width: 80,
+                                  child: CustomPngImage(imageName: AssetsImage.Slider,width: 80,
                                     height: 80,fit: BoxFit.fill,),
                                 );
                               },

@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:haraj_app/modules/login/login_screen.dart';
+import 'package:haraj_app/modules/profile/profile_screen.dart';
 import 'package:haraj_app/modules/splash/splash_screen.dart';
+import 'package:haraj_app/route/routes.dart';
 import '../../shared/assets_manager.dart';
 import '../../shared/components/custom_textformfiled.dart';
 
@@ -14,6 +16,7 @@ import '../product/gallery_page/gallery_page.dart';
 import '../product/gallery_page/widget/ads_gallery_widget.dart';
 import '../product/gallery_page/widget/empty_gallery_image_widget.dart';
 import '../product/gallery_page/widget/gallery_image_widget.dart';
+import '../profile/edit_profile/edit_profile_screen.dart';
 import '../register/register_screen.dart';
 import '../search/result_search/result_search_screen.dart';
 import '../search/search_list_screen.dart';
@@ -28,8 +31,10 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
+     routes: AppRoutes.getPageRoutes(context),
 
-     home: MainScreen(),
+
+     home: ProfileScreen(),
 
     );
   }
