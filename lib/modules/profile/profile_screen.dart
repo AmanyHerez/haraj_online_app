@@ -53,7 +53,7 @@ class ProfileScreen extends StatelessWidget {
                         padding: const EdgeInsets.only(left: 21),
                         child: InkWell(
                           onTap: () {
-                            Navigator.pop(context);
+                           Navigator.pushNamed(context, AppRoutes.EDITPROFILE);
                           },
                           child: CustomSvgImage(
                             imageName: AssetsImage.editIcon,
@@ -188,7 +188,9 @@ class ProfileScreen extends StatelessWidget {
                   ProfileListViewItem(
                       imageName: AssetsImage.settingIcon,
                       text: 'الاعدادات',
-                      onPressed: () {}),
+                      onPressed: () {
+                        Navigator.pushNamed(context, AppRoutes.SETTING);
+                      }),
                   SizedBox(
                     height: 24,
                   ),

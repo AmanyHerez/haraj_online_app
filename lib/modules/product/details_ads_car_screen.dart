@@ -69,10 +69,15 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(12.0),
-                    child: CustomSvgImage(
-                      imageName: AssetsImage.arrowIcon,
-                      width: 8,
-                      height: 13,
+                    child: InkWell(
+                      onTap:(){
+                        Navigator.pop(context);
+                      },
+                      child: CustomSvgImage(
+                        imageName: AssetsImage.arrowIcon,
+                        width: 8,
+                        height: 13,
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -126,7 +131,7 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                       image: DecorationImage(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                          "assets/images/${AssetsImage.Slider}.png",
+                          "assets/images/${AssetsImage.car}.png",
                         ),
                       ),
                     ),
@@ -178,7 +183,7 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                                     color: AppColor.primary,
                                     borderRadius: BorderRadius.circular(4),
                                   ),
-                                  child: CustomPngImage(imageName: AssetsImage.Slider,width: 80,
+                                  child: CustomPngImage(imageName: AssetsImage.car,width: 80,
                                     height: 80,fit: BoxFit.fill,),
                                 );
                               },
@@ -282,10 +287,10 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                     ),
                     child: Row(
                       children: [
-                        CustomTabBar((){toggleWidgetVisibility(0);}, "التفاصيل", 0),
-                        CustomTabBar((){toggleWidgetVisibility(1);}, "التواصل", 1),
-                        CustomTabBar((){toggleWidgetVisibility(2);}, "تقديم عرض", 2),
-                        CustomTabBar((){toggleWidgetVisibility(3);}, " ارشادات", 3),
+                        CustomTabBar((){toggleWidgetVisibility(0);}, "التفاصيل", 0,8),
+                        CustomTabBar((){toggleWidgetVisibility(1);}, "التواصل", 1,8),
+                        CustomTabBar((){toggleWidgetVisibility(2);}, "تقديم عرض", 2,8),
+                        CustomTabBar((){toggleWidgetVisibility(3);}, " ارشادات", 3,8),
                       ],
                     ),
                   ),

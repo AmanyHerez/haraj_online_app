@@ -13,6 +13,7 @@ class AssetsImage {
   static const String arrowIcon = "arrow";
   static const String exclamationIcon = "exclamation_icon";
   static const String user = "user";
+  static const String lockIcon = "lock_icon";
   static const String userIcon = "user_icon";
   static const String cameraIcon = "camera";
   static const String phoneIcon = "phone_icon";

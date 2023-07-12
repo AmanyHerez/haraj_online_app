@@ -96,9 +96,9 @@ class _GalleryPageViewState extends State<GalleryPageView> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CustomTabBar((){toggleWidgetVisibility(0);}, "حول المعرض", 0),
-                        CustomTabBar((){toggleWidgetVisibility(1);}, "صور المعرض", 1),
-                        CustomTabBar((){toggleWidgetVisibility(2);}, " الاعلانات", 2),
+                        CustomTabBar((){toggleWidgetVisibility(0);}, "حول المعرض", 0,16),
+                        CustomTabBar((){toggleWidgetVisibility(1);}, "صور المعرض", 1,16),
+                        CustomTabBar((){toggleWidgetVisibility(2);}, " الاعلانات", 2,16),
 
                       ],
                     ),

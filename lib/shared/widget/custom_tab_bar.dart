@@ -10,9 +10,10 @@ class CustomTabBar extends StatelessWidget {
   Function() onTap;
   String title;
   int index;
+  double hPadding;
 
 
-  CustomTabBar(this.onTap, this.title, this.index);
+  CustomTabBar(this.onTap, this.title, this.index,this.hPadding);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class CustomTabBar extends StatelessWidget {
               ? AppColor.primary
               : Colors.transparent,
         ),
-        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: hPadding, vertical: 10),
         margin: EdgeInsets.only(left: 10,),
         child: Center(
             child: CustomText(

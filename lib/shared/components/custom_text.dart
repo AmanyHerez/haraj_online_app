@@ -8,7 +8,8 @@ class CustomText extends StatelessWidget {
   final double? height;
   final TextAlign? textAlign;
   final Color? color;
-  final bool? underline;
+  final Color? bgColor;
+  final TextDecoration? underline;
   final FontWeight? fontWeight;
   final int? maxLines;
   final String? fontFamily;
@@ -20,10 +21,11 @@ class CustomText extends StatelessWidget {
     this.color,
     this.height,
     this.fontWeight,
-    this.underline = false,
+    this.underline,
     this.maxLines,
     this.fontFamily,
     this.overFlow,
+    this.bgColor,
   });
 
   @override
@@ -38,9 +40,10 @@ class CustomText extends StatelessWidget {
         fontSize: fontSize?? 14 ,
         color: color ?? AppColor.black,
         fontFamily: fontFamily ?? FontConstants.fontFamily,
-        decoration: underline! ? TextDecoration.underline : TextDecoration.none,
+        decoration: underline?? TextDecoration.none,
         overflow: overFlow,
         height: height,
+        backgroundColor: bgColor,
       ),
     );
   }

@@ -47,7 +47,7 @@ class CustomElevatedButton extends StatelessWidget {
           ),
         ),
         style: ElevatedButton.styleFrom(
-          backgroundColor: bgColor ?? AppColor.lightGrey,
+          backgroundColor: bgColor ?? AppColor.bg_button,
           elevation: elevation,
           side: BorderSide(color: bordercolor ?? Colors.transparent),
           shape: RoundedRectangleBorder(

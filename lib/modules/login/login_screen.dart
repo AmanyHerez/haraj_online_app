@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:haraj_app/route/routes.dart';
 import 'package:haraj_app/shared/assets_manager.dart';
 import 'package:haraj_app/shared/components/custom_elevated_button.dart';
+import 'package:haraj_app/shared/components/custom_text_button.dart';
 import 'package:haraj_app/shared/components/custome_image.dart';
 import 'package:haraj_app/shared/font_manager.dart';
 import 'package:haraj_app/shared/style/color_manager.dart';
@@ -26,7 +27,7 @@ class LoginScreen extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                height: 540,
+                height: 550,
                 decoration: BoxDecoration(
                   color: AppColor.grey,
                   image: DecorationImage(
@@ -40,7 +41,7 @@ class LoginScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(14.0),
                   child: Column(
                     children: [
-                    const  SizedBox(
+                      const SizedBox(
                         height: 60,
                       ),
                       CustomSvgImage(
@@ -48,7 +49,7 @@ class LoginScreen extends StatelessWidget {
                         height: 95,
                         width: 131,
                       ),
-                    const  SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       CustomTextFomField(
@@ -56,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                         iconNamePuffix: AssetsImage.EmailIcon,
                         // errorTitle: 'الرجاء ادخال البريد الالكتروني',
                       ),
-                    const  SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       CustomTextFomField(
@@ -65,39 +66,36 @@ class LoginScreen extends StatelessWidget {
                         // errorTitle: 'الرجاء ادخال البريد الالكتروني',
                         suffix: Icon(Icons.remove_red_eye),
                       ),
-                   const   SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           InkWell(
-                            onTap:(){},
-                            child: CustomText(text:
-                              'هل نسيت كلمة المرور ؟',color: AppColor.grey
-
-                            ),
+                            onTap: () {},
+                            child: CustomText(
+                                text: 'هل نسيت كلمة المرور ؟',
+                                color: AppColor.grey),
                           )
                         ],
                       ),
-                    const  SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      CustomElevatedButton(text: 'تسجيل الدخول', onPressed: () {
-                        Navigator.pushNamed(context, AppRoutes.HOME);
-                      }),
-                   const   SizedBox(
+                      CustomElevatedButton(
+                          text: 'تسجيل الدخول',
+                          onPressed: () {
+                            Navigator.pushNamed(context, AppRoutes.MAIN);
+                          }),
+                      const SizedBox(
                         height: 20,
                       ),
-                      InkWell(
-                        onTap:(){
-                          Navigator.pushNamed(context, AppRoutes.REGISTER);
-                        },
-                        child: Text(
-                          ' تسجيل جديد',
-                          style: TextStyle(color: AppColor.primary),
-                        ),
-                      ),
+                      CustomTextButton(
+                          text: ' تسجيل جديد',
+                          onPressed: () {
+                            Navigator.pushNamed(context, AppRoutes.REGISTER);
+                          })
                     ],
                   ),
                 ),
@@ -145,10 +143,8 @@ class LoginScreen extends StatelessWidget {
                         SocialContainer(nameIcon: AssetsImage.twiterIcon),
                         SocialContainer(nameIcon: AssetsImage.facebookIcon),
                         SocialContainer(nameIcon: AssetsImage.googleIcon),
-
                       ],
                     )
-
                   ],
                 ),
               ),
@@ -159,4 +155,3 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-

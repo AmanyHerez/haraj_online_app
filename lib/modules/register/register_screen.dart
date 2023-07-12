@@ -21,7 +21,6 @@ class RegisterScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Form(
           child: Column(
-            // crossAxisAlignment: CrossAxisAlignment.stretch,
 
             children: [
               Container(
@@ -98,7 +97,7 @@ class RegisterScreen extends StatelessWidget {
                         height: 20,
                       ),
                       CustomElevatedButton(text: 'انشاء حساب', onPressed: () {
-                        Navigator.pushNamed(context, AppRoutes.HOME);
+                        Navigator.pushNamed(context, AppRoutes.MAIN);
                       }),
                       SizedBox(
                         height: 20,

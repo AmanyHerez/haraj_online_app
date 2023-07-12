@@ -79,8 +79,8 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CustomTabBar((){toggleWidgetVisibility(0);}, "الاعلانات المحفوظة ", 0),
-                        CustomTabBar((){toggleWidgetVisibility(1);}, " عمليات بحث محفوظة", 1),
+                        CustomTabBar((){toggleWidgetVisibility(0);}, "الاعلانات المحفوظة ", 0,16),
+                        CustomTabBar((){toggleWidgetVisibility(1);}, " عمليات بحث محفوظة", 1,16),
 
 
                       ],
