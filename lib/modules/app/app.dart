@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
      routes: AppRoutes.getPageRoutes(context),
 
 
-     home: LoginScreen(),
+     home: SettingScreen(),
 
     );
   }

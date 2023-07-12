@@ -1,69 +1,69 @@
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-
-class ExpandableContainer extends StatefulWidget {
-  @override
-  _ExpandableContainerState createState() => _ExpandableContainerState();
-}
-
-class _ExpandableContainerState extends State<ExpandableContainer> {
-  List<Item> items = [
-    Item(
-      headerValue: 'Section 1',
-      expandedValue: 'Content for Section 1',
-      isExpanded: false,
-    ),
-    Item(
-      headerValue: 'Section 2',
-      expandedValue: 'Content for Section 2',
-      isExpanded: false,
-    ),
-    Item(
-      headerValue: 'Section 3',
-      expandedValue: 'Content for Section 3',
-      isExpanded: false,
-    ),
-  ];
-
+import 'package:haraj_app/shared/components/custom_divider.dart';
+class Card1 extends StatelessWidget {
+ static const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor";
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        margin: EdgeInsets.all(10),
-        child: ExpansionPanelList(
-          elevation: 1,
-          expandedHeaderPadding: EdgeInsets.all(0),
-          expansionCallback: (int index, bool isExpanded) {
-            setState(() {
-              items[index].isExpanded = !isExpanded;
-            });
-          },
-          children: items.map<ExpansionPanel>((Item item) {
-            return ExpansionPanel(
-              headerBuilder: (BuildContext context, bool isExpanded) {
-                return ListTile(
-                  title: Text(item.headerValue),
-                );
-              },
-              body: ListTile(
-                title: Text(item.expandedValue),
-              ),
-              isExpanded: item.isExpanded,
-            );
-          }).toList(),
-        ),
-      ),
-    );
+    return ExpandableNotifier(
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Card(
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 150,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.orange,
+                      shape: BoxShape.rectangle,
+                    ),
+                  ),
+                ),
+                ScrollOnExpand(
+                  scrollOnExpand: true,
+                  scrollOnCollapse: false,
+                  child: ExpandablePanel(
+                    theme: const ExpandableThemeData(
+                      headerAlignment: ExpandablePanelHeaderAlignment.center,
+                      tapBodyToCollapse: true,
+                    ),
+                    header: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Text(
+                          "ExpandablePanel",
+
+                        )),
+                    collapsed: CustomeDivider(),
+                    expanded: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        for (var _ in Iterable.generate(5))
+                          Padding(
+                              padding: EdgeInsets.only(bottom: 10),
+                              child: Text(
+                                loremIpsum,
+                                softWrap: true,
+                                overflow: TextOverflow.fade,
+                              )),
+                      ],
+                    ),
+                    builder: (_, collapsed, expanded) {
+                      return Padding(
+                        padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                        child: Expandable(
+                          collapsed: collapsed,
+                          expanded: expanded,
+                          theme: const ExpandableThemeData(crossFadePoint: 0),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ));
   }
-}
-
-class Item {
-  Item({
-    required this.headerValue,
-    required this.expandedValue,
-    required this.isExpanded,
-  });
-
-  String headerValue;
-  String expandedValue;
-  bool isExpanded;
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:haraj_app/modules/profile/setting/widget/bottom_sheet/ceate_password_bottom_sheet.dart';
 import 'package:haraj_app/shared/components/custom_elevated_button.dart';
+import 'package:haraj_app/shared/components/custom_show_dialog.dart';
 import 'package:haraj_app/shared/components/custom_text.dart';
 import 'package:haraj_app/shared/components/custom_textformfiled.dart';
 import 'package:haraj_app/shared/custom_open_bottom_sheet.dart';
@@ -54,7 +55,7 @@ class ChangeEmailScreen extends StatelessWidget {
                   CustomTextFomField(title: 'ادخل البريد الاكتروني الجديد', iconNamePuffix: AssetsImage.EmailIcon),
                   SizedBox(height: 24,),
                   CustomElevatedButton(text: 'تغيير', onPressed: (){
-                    CustomOpenBottomSheet.openBottomSheet(context, CreatePasswordBottomSheet());
+                    CustomDialog.ShowDialogFunction(context, 'لقد تم تغيير البريد الأكتروني بنجاح ');
                   },bgColor: AppColor.primary,),
                   SizedBox(height: 16,),
                   
