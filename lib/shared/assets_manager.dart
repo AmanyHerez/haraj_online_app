@@ -60,6 +60,8 @@ class AssetsImage {
   static const String termsIcon = "terms_icon";
   static const String settingIcon = "setting_icon";
   static const String deleteUser = "delete_user";
+  static const String removeIcon = "remove_icon";
+  static const String returnSend = "return_send";
 
   //image for testing
 

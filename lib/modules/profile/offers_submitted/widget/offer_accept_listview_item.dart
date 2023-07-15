@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:haraj_app/shared/components/custom_show_dialog.dart';
 
 import '../../../../shared/assets_manager.dart';
 import '../../../../shared/components/custom_divider.dart';
@@ -8,7 +11,13 @@ import '../../../../shared/custom_open_bottom_sheet.dart';
 import '../../../../shared/style/color_manager.dart';
 import 'bottom_sheet/edit_offer_befor_send.dart';
 
-class OfferAcceptListViewItem extends StatelessWidget {
+class OfferAcceptListViewItem extends StatefulWidget {
+  @override
+  State<OfferAcceptListViewItem> createState() =>
+      _OfferAcceptListViewItemState();
+}
+
+class _OfferAcceptListViewItemState extends State<OfferAcceptListViewItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -82,10 +91,7 @@ class OfferAcceptListViewItem extends StatelessWidget {
                       width: 60,
                     ),
                     InkWell(
-                        onTap: () {
-                          CustomOpenBottomSheet.openBottomSheet(
-                              context, EditOfferBeforSendBottomSheet());
-                        },
+                        onTap: _show,
                         child: Icon(Icons.more_vert)),
                   ],
                 ),
@@ -186,4 +192,58 @@ class OfferAcceptListViewItem extends StatelessWidget {
       ),
     );
   }
+
+void _show() {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        backgroundColor: AppColor.white,
+        title: Column(
+          children: [
+            InkWell(
+              onTap: () {
+                Navigator.pop(context);
+                CustomDialog.customShowDialogFunction(
+                    context,
+                    'هل انت متاكد من انك تريد حذف العرض ؟ ',
+                    AssetsImage.deleteIcon);
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 10),
+                child: Row(
+                  children: [
+                    CustomSvgImage(
+                        imageName:
+                        AssetsImage.removeIcon),
+                    SizedBox(
+                      width: 12,
+                    ),
+                    CustomText(
+                      text: 'حذف',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 12,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            CustomeDivider(),
+            SizedBox(
+              height: 12,
+            ),
+          ],
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(4),
+          ),
+        ),
+        titlePadding: EdgeInsets.zero,
+
+      );
+    },
+  );
+}
 }

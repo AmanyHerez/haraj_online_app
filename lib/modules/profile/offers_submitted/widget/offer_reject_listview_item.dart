@@ -2,14 +2,20 @@ import 'package:flutter/material.dart';
 
 import '../../../../shared/assets_manager.dart';
 import '../../../../shared/components/custom_divider.dart';
+import '../../../../shared/components/custom_show_dialog.dart';
 import '../../../../shared/components/custom_text.dart';
 import '../../../../shared/components/custome_image.dart';
 import '../../../../shared/custom_open_bottom_sheet.dart';
 import '../../../../shared/style/color_manager.dart';
 import 'bottom_sheet/edit_offer_befor_send.dart';
-class OfferRejectListViewItem extends StatelessWidget {
+class OfferRejectListViewItem extends StatefulWidget {
   const OfferRejectListViewItem({Key? key}) : super(key: key);
 
+  @override
+  State<OfferRejectListViewItem> createState() => _OfferRejectListViewItemState();
+}
+
+class _OfferRejectListViewItemState extends State<OfferRejectListViewItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -83,10 +89,7 @@ class OfferRejectListViewItem extends StatelessWidget {
                       width: 60,
                     ),
                     InkWell(
-                        onTap: () {
-                          CustomOpenBottomSheet.openBottomSheet(
-                              context, EditOfferBeforSendBottomSheet());
-                        },
+                        onTap:  _show,
                         child: Icon(Icons.more_vert)),
                   ],
                 ),
@@ -185,6 +188,85 @@ class OfferRejectListViewItem extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  void _show() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: AppColor.white,
+          title: Column(
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                  CustomOpenBottomSheet.openBottomSheet(context, EditOfferBeforSendBottomSheet());
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 10),
+                  child: Row(
+                    children: [
+                      CustomSvgImage(
+                          imageName:
+                          AssetsImage.returnSend),
+                      SizedBox(
+                        width: 12,
+                      ),
+                      CustomText(
+                        text: 'اعادة الارسال',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              CustomeDivider(),
+              InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                  CustomDialog.customShowDialogFunction(
+                      context,
+                      'هل انت متاكد من انك تريد حذف العرض ؟ ',
+                      AssetsImage.deleteIcon);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 10),
+                  child: Row(
+                    children: [
+                      CustomSvgImage(
+                          imageName:
+                          AssetsImage.removeIcon),
+                      SizedBox(
+                        width: 12,
+                      ),
+                      CustomText(
+                        text: 'حذف',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              CustomeDivider(),
+              SizedBox(
+                height: 12,
+              ),
+            ],
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(4),
+            ),
+          ),
+          titlePadding: EdgeInsets.zero,
+
+        );
+      },
     );
   }
 }
