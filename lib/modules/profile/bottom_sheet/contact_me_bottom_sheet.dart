@@ -16,28 +16,32 @@ class ContactMeBottomSheet extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: Container(
-                margin: EdgeInsets.all(10),
-                width: 30,
-                height: 30,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColor.containerGreyColor,
-                  borderRadius: BorderRadius.circular(25),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Spacer(
+                  flex: 3,
                 ),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                    Icons.close,
-                    color: AppColor.primary,
+                Container(
+                  width: 52,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: AppColor.greyContainerBottomSheet,
+                    borderRadius: BorderRadius.circular(8),
                   ),
-                  padding: EdgeInsets.all(0),
                 ),
-              ),
+                Spacer(
+                  flex: 2,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: InkWell(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: CustomSvgImage(imageName: AssetsImage.cancel)),
+                ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),

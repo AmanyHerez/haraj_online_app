@@ -5,6 +5,8 @@ import 'package:haraj_app/modules/product/widget/details_widget.dart';
 import 'package:haraj_app/modules/product/widget/expanded_widget.dart';
 import 'package:haraj_app/modules/product/widget/instructions_widget.dart';
 import 'package:haraj_app/modules/product/widget/offer_widget.dart';
+import 'package:haraj_app/route/routes.dart';
+import 'package:haraj_app/shared/components/custom_cached_network_image.dart';
 import 'package:haraj_app/shared/components/custom_divider.dart';
 import 'package:haraj_app/shared/components/custom_elevated_button.dart';
 import 'package:haraj_app/shared/components/custom_text.dart';
@@ -54,22 +56,13 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              width: double.infinity,
-              height: 110,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(
-                    "assets/images/${AssetsImage.background}.png",
-                  ),
-                ),
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: InkWell(
+            Stack(children: [
+              CustomSvgImage(imageName: AssetsImage.tabBarbackground,width: MediaQuery.sizeOf(context).width,),
+              Padding(
+                padding: const EdgeInsets.only(top: 40,right: 16,left: 16),
+                child: Row(
+                  children: [
+                    InkWell(
                       onTap:(){
                         Navigator.pop(context);
                       },
@@ -79,44 +72,39 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                         height: 13,
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 100,
-                  ),
-                  CustomText(text: 'تفاصيل الاعلان',fontSize: 16,),
-                  SizedBox(
-                    width: 60,
-                  ),
-                  Container(
-                    width: 28,
-                    height: 28,
-                    decoration: BoxDecoration(
-                      color: AppColor.white,
-                      borderRadius: BorderRadius.circular(25),
+                    SizedBox(
+                      width: 100,
                     ),
-                    child: Icon(
-                      Icons.location_on_outlined,
-                      color: AppColor.grey,
+                    CustomText(text: 'تفاصيل الاعلان',fontSize: 16,fontWeight: FontWeight.w800,),
+                    Spacer(),
+                    Container(
+                      width: 28,
+                      height: 28,
+                      padding: EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: AppColor.white,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child:CustomSvgImage(imageName: AssetsImage.Map,),
                     ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    width: 28,
-                    height: 28,
-                    decoration: BoxDecoration(
-                      color: AppColor.white,
-                      borderRadius: BorderRadius.circular(25),
+                    SizedBox(
+                      width: 10,
                     ),
-                    child: Icon(
-                      Icons.favorite_border,
-                      color: AppColor.grey,
+                    Container(
+                      width: 28,
+                      height: 28,
+                      padding: EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: AppColor.white,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: CustomSvgImage(imageName: AssetsImage.heart,),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
+            ],),
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
               child: Column(
@@ -130,9 +118,7 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                       borderRadius: BorderRadius.circular(16),
                       image: DecorationImage(
                         fit: BoxFit.fill,
-                        image: AssetImage(
-                          "assets/images/${AssetsImage.car}.png",
-                        ),
+                        image: NetworkImage('https://api.ferrari.com/cms/network/medias//resize/6093c2415f1bb670c6d5aac2-ferrari-magazine-dmQZJnIRJp.jpg?apikey=9QscUiwr5n0NhOuQb463QEKghPrVlpaF'),
                       ),
                     ),
                     child: Padding(
@@ -166,7 +152,7 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                             height: 60,
                             padding: EdgeInsets.all(4),
                             decoration: BoxDecoration(
-                              color:AppColor.containerGreyColor,
+                              color:Colors.white.withOpacity(.5),
                               borderRadius: BorderRadius.circular(6),
                             ),
                             child: ListView.builder(
@@ -176,15 +162,18 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                                 return Container(
                                   padding: EdgeInsets.zero,
                                   clipBehavior: Clip.antiAlias,
-                                  margin: EdgeInsets.only(left: 5,right: 5),
+
+                                  margin: EdgeInsets.symmetric(horizontal: 3),
                                   width:60,
                                   height: 55,
                                   decoration: BoxDecoration(
-                                    color: AppColor.primary,
+                                   border: Border.all(color: AppColor.primary),
                                     borderRadius: BorderRadius.circular(4),
                                   ),
-                                  child: CustomPngImage(imageName: AssetsImage.car,width: 80,
-                                    height: 80,fit: BoxFit.fill,),
+                                  child: CustomCachedNetworkImage(imageUrl: 'https://api.ferrari.com/cms/network/medias//resize/6093c2415f1bb670c6d5aac2-ferrari-magazine-dmQZJnIRJp.jpg?apikey=9QscUiwr5n0NhOuQb463QEKghPrVlpaF',width: 80,
+                                  height: 80,fit: BoxFit.fill,)
+                                  // CustomPngImage(imageName: AssetsImage.car,width: 80,
+                                  //   height: 80,fit: BoxFit.fill,),
                                 );
                               },
                             ),
@@ -217,61 +206,66 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                   SizedBox(
                     height: 18,
                   ),
-                  Row(
-                    children: [
-                      Container(
-                          width: 60,
-                          height: 60,
-                          padding: EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            color: AppColor.dividerGreyColor,
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          child:
-                              CustomSvgImage(imageName: AssetsImage.OBJECTS)),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CustomText(text: "معرض النور لبيع و شراء السيارات",fontWeight: FontWeight.w500,color: AppColor.primary,),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              CustomText(
-                                text: 'يعرض 100 سيارة الان لبيع',
-                                fontSize: 14,
-                                color: AppColor.grey,
-                              ),
-                              Icon(
-                                Icons.arrow_back_ios_new_outlined,
-                                color: AppColor.grey,
-                                size: 16,
-                              ),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              Icon(
-                                Icons.access_time_outlined,
-                                color: AppColor.grey,
-                                size: 16,
-                              ),
-                              CustomText(
-                                text: 'قبل 1 ساعة',
-                                fontSize: 14,
-                                color: AppColor.grey,
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                        ],
-                      )
-                    ],
+                  InkWell(
+                    onTap: (){
+                      Navigator.pushNamed(context, AppRoutes.GALLERY);
+                    },
+                    child: Row(
+                      children: [
+                        Container(
+                            width: 60,
+                            height: 60,
+                            padding: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: AppColor.Grey1,
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child:
+                                CustomSvgImage(imageName: AssetsImage.OBJECTS)),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CustomText(text: "معرض النور لبيع و شراء السيارات",fontWeight: FontWeight.w500,color: AppColor.primary,),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                CustomText(
+                                  text: 'يعرض 100 سيارة الان لبيع',
+                                  fontSize: 14,
+                                  color: AppColor.grey,
+                                ),
+                                Icon(
+                                  Icons.arrow_back_ios_new_outlined,
+                                  color: AppColor.grey,
+                                  size: 16,
+                                ),
+                                SizedBox(
+                                  width: 30,
+                                ),
+                                Icon(
+                                  Icons.access_time_outlined,
+                                  color: AppColor.grey,
+                                  size: 16,
+                                ),
+                                CustomText(
+                                  text: 'قبل 1 ساعة',
+                                  fontSize: 14,
+                                  color: AppColor.grey,
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                   CustomeDivider(),
                   SizedBox(
@@ -280,10 +274,11 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                   Container(
                     width: double.infinity,
                     height: 60,
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                     decoration: BoxDecoration(
+                      color: AppColor.white,
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColor.dividerGreyColor),
+                      border: Border.all(color: AppColor.containerGreyColor,width: .5),
                     ),
                     child: Row(
                       children: [

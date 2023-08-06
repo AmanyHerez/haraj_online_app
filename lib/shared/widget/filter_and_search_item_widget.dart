@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:haraj_app/shared/custom_open_bottom_sheet.dart';
 
 import '../components/custome_image.dart';
 import '../font_manager.dart';
@@ -21,9 +22,11 @@ class FilterAndSearchItemWidget extends StatelessWidget {
       height: 60,
       margin: EdgeInsets.only(bottom: 10, top: 10),
       decoration: BoxDecoration(
+          color: AppColor.white,
           borderRadius: BorderRadius.circular(6),
           border: Border.all(
-            color: AppColor.dividerGreyColor,
+            width: .5,
+            color: AppColor.containerBorderColor,
           )),
       child: Row(
         children: [
@@ -33,7 +36,7 @@ class FilterAndSearchItemWidget extends StatelessWidget {
             decoration: BoxDecoration(
                 border: Border(
                     left: BorderSide(
-              color: AppColor.dividerGreyColor,
+              color: AppColor.containerBorderColor,
             ))),
             child: CustomSvgImage(imageName: iconName),
           ),
@@ -48,24 +51,9 @@ class FilterAndSearchItemWidget extends StatelessWidget {
           Spacer(),
           IconButton(
             onPressed: () {
-              showModalBottomSheet(
-                context: context,
-                // elevation: 10,
-                enableDrag: true,
-                isDismissible: false,
-                barrierColor: AppColor.lightGrey,
-                shape: RoundedRectangleBorder(
-                  // <-- SEE HERE
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(25.0),
-                  ),
-                ),
-                builder: (context) {
-                  return widget;
-                },
-              );
+              CustomOpenBottomSheet.openBottomSheet(context, widget);
             },
-            icon: Icon(Icons.arrow_back_ios_new_outlined),
+            icon: Icon(Icons.arrow_back_ios_new_outlined, size: 16),
           ),
         ],
       ),

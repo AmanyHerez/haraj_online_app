@@ -4,6 +4,7 @@ import 'package:haraj_app/modules/favorite/widget/prosses_saved_search.dart';
 
 import '../../shared/assets_manager.dart';
 import '../../shared/components/custom_text.dart';
+import '../../shared/components/custome_image.dart';
 import '../../shared/style/color_manager.dart';
 import '../../shared/widget/custom_tab_bar.dart';
 class FavoriteScreen extends StatefulWidget {
@@ -40,26 +41,21 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: double.infinity,
-              height: 110,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(
-                    "assets/images/${AssetsImage.background}.png",
+            Stack(
+              children: [
+                CustomSvgImage(imageName: AssetsImage.tabBarbackground,width: MediaQuery.sizeOf(context).width,),
+                Padding(
+                  padding: const EdgeInsets.only(top: 50),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+
+                      CustomText(text: 'المحفوظات ',fontSize: 16,fontWeight: FontWeight.w800,),
+
+                    ],
                   ),
                 ),
-              ),
-              child: Row(
-               mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-
-                  CustomText(text: 'المحفوظات ',fontSize: 16,),
-
-                ],
-              ),
-
+              ],
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 10),
@@ -71,10 +67,12 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                   Container(
                     width: double.infinity,
                     height: 60,
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     decoration: BoxDecoration(
+                      color: AppColor.white,
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColor.dividerGreyColor),
+                      border: Border.all(color: AppColor.containerBorderColor,width: .5),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,

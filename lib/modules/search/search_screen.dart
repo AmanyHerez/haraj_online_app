@@ -10,6 +10,7 @@ import '../../shared/assets_manager.dart';
 import '../../shared/components/custom_elevated_button_icon_text.dart';
 import '../../shared/components/custom_text.dart';
 import '../../shared/components/custom_text_filed.dart';
+import '../../shared/components/custome_image.dart';
 import '../../shared/widget/filter_and_search_item_widget.dart';
 import '../filter/bottom_sheet/select_city_bottom_sheet.dart';
 import '../filter/bottom_sheet/status_mac_car_bottom_sheet.dart';
@@ -28,46 +29,44 @@ class SearchScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: double.infinity,
-              height: 194,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(
-                    "assets/images/${AssetsImage.appBarBackground}.png",
-                  ),
+            Stack(
+              children: [
+                CustomSvgImage(
+                  imageName: AssetsImage.background3,
+                  width: MediaQuery.sizeOf(context).width,
                 ),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 40,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CustomText(
-                        text: 'البحث ',
-                        fontSize: 16,
+                Column(
+                  children: [
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CustomText(
+                          text: 'البحث ',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: CustomTextFomField(
+                        title: 'ابحث عن حراج او صاحب حراج سيارة ....',
+                        fillColor: AppColor.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w300,
+                        iconNamePuffix: AssetsImage.searchIcon,
+                        floatingLabelBehavior: FloatingLabelBehavior.never,
                       ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child:     CustomTextFomField(
-                      title: 'ابحث عن حراج او صاحب حراج سيارة ....',
-                      fillColor: AppColor.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w300,
-                      iconNamePuffix: AssetsImage.searchIcon,
-                      floatingLabelBehavior: FloatingLabelBehavior.never,),
-                  )
-                ],
-              ),
+                    )
+                  ],
+                ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -80,10 +79,13 @@ class SearchScreen extends StatelessWidget {
                     Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            color: AppColor.dividerGreyColor,
-                          )),
+                        color: AppColor.white,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          width: .5,
+                          color: AppColor.containerBorderColor,
+                        ),
+                      ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 20),
@@ -108,8 +110,13 @@ class SearchScreen extends StatelessWidget {
                                 title: ' نوع الوقود',
                                 iconName: AssetsImage.fuelIcon,
                                 widget: TypeFuelBottomSheet()),
-                            SizedBox(height: 16,),
-                            CustomElevatedButtonRowIconText(imageName: AssetsImage.searchIcon,text:'بحث ',onPressed: (){}),
+                            SizedBox(
+                              height: 16,
+                            ),
+                            CustomElevatedButtonRowIconText(
+                                imageName: AssetsImage.searchIcon,
+                                text: 'بحث ',
+                                onPressed: () {}),
                           ],
                         ),
                       ),
@@ -131,7 +138,6 @@ class SearchScreen extends StatelessWidget {
               height: 12,
             ),
             LikeAdsWidget(),
-
           ],
         ),
       ),

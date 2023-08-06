@@ -1,12 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:haraj_app/modules/login/login_screen.dart';
+
 import 'package:haraj_app/modules/profile/profile_screen.dart';
 import 'package:haraj_app/modules/splash/splash_screen.dart';
 import 'package:haraj_app/route/routes.dart';
 import '../../shared/assets_manager.dart';
 import '../../shared/components/custom_textformfiled.dart';
 
+import '../../test_stack_bg_image.dart';
 import '../../testing_screen.dart';
 import '../favorite/favorite_screen.dart';
 import '../filter/filter_screen.dart';
@@ -23,10 +24,9 @@ import '../profile/setting/chage_email.dart';
 import '../profile/setting/otp_after_write_screen.dart';
 import '../profile/setting/otp_screen_first.dart';
 import '../profile/setting/setting_screen.dart';
-import '../register/register_screen.dart';
+
 import '../search/result_search/result_search_screen.dart';
 import '../search/search_list_screen.dart';
-import '../type_account/type_account_screen.dart';
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
      routes: AppRoutes.getPageRoutes(context),
 
 
-     home: LoginScreen(),
+     home: SplashScreen(),
 
     );
   }

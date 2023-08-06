@@ -6,15 +6,19 @@ import 'package:haraj_app/modules/home/home_screen.dart';
 import 'package:haraj_app/modules/profile/profile_screen.dart';
 import 'package:haraj_app/modules/search/search_screen.dart';
 
+import '../modules/auth/login/login_screen.dart';
+import '../modules/auth/register/register_screen.dart';
 import '../modules/home/bn_screen.dart';
-import '../modules/login/login_screen.dart';
+
+import '../modules/product/details_ads_car_screen.dart';
+import '../modules/product/gallery_page/gallery_page.dart';
 import '../modules/profile/edit_profile/edit_profile_screen.dart';
 import '../modules/profile/offers_submitted/offers_submitted_screen.dart';
 import '../modules/profile/setting/chage_email.dart';
 import '../modules/profile/setting/otp_after_write_screen.dart';
 import '../modules/profile/setting/otp_screen_first.dart';
 import '../modules/profile/setting/setting_screen.dart';
-import '../modules/register/register_screen.dart';
+
 import '../modules/splash/splash_screen.dart';
 class AppRoutes {
   static const String SPLASH = '/';
@@ -33,6 +37,8 @@ class AppRoutes {
   static const String OTP  = '/otp';
   static const String OTPAFTERWRITE  = '/otp_after_write';
   static const String CHANGE_EMAIL  = '/change_email';
+  static const String DETAILS_ADS_CAR  = '/details_car';
+  static const String GALLERY  = '/Gallery_page';
 
 
   static Map<String, Widget Function(BuildContext)> getPageRoutes(context) {
@@ -53,6 +59,8 @@ class AppRoutes {
       AppRoutes.CHANGE_EMAIL: (context) => ChangeEmailScreen(),
       AppRoutes.OTP: (context) => OTPFirstScreen(),
       AppRoutes.OTPAFTERWRITE: (context) => OTPAfterWritingScreen(),
+      AppRoutes.DETAILS_ADS_CAR: (context) => DetailsAdsCarScreen(),
+      AppRoutes.GALLERY: (context) => GalleryPageView(),
 
 
     };

@@ -26,14 +26,14 @@ class CustomTabBar extends StatelessWidget {
               ? AppColor.primary
               : Colors.transparent,
         ),
-        padding: EdgeInsets.symmetric(horizontal: hPadding, vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: hPadding,vertical: 10),
         margin: EdgeInsets.only(left: 10,),
         child: Center(
             child: CustomText(
           text: title,
           color:
           SelectedContainer.selectedContainerIndex == index ? AppColor.white : AppColor.grey,
-              fontWeight: FontWeight.w500,
+              fontWeight:SelectedContainer.selectedContainerIndex == index ? FontWeight.w500:FontWeight.w400,
         )),
       ),
     );

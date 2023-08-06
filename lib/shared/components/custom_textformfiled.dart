@@ -66,7 +66,7 @@ class CustomTextFomField extends StatelessWidget {
               fontSize: 12,
               fontWeight: FontWeight.w400),
           filled: true,
-          fillColor: fillColor ?? AppColor.fillgrey,
+          fillColor: fillColor ?? Colors.white.withOpacity(0.5),
           prefixIcon: Container(
             width: 50,
             height: 60,
@@ -75,8 +75,10 @@ class CustomTextFomField extends StatelessWidget {
               left: 8,
             ),
             decoration: BoxDecoration(
+
               border: Border(
-                left: BorderSide(color: Color(0xFFD0D0D0)),
+                left: BorderSide(color: Color(0xFFD0D0D0,),),
+
               ),
             ),
             child: CustomSvgImage(

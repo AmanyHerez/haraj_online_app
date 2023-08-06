@@ -17,7 +17,8 @@ class AboutGalleryWidget extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColor.dividerGreyColor),
+        color: AppColor.white,
+        border: Border.all(color: AppColor.containerGreyColor,width: .5),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
@@ -30,7 +31,7 @@ class AboutGalleryWidget extends StatelessWidget {
               padding: EdgeInsets.all(12),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: AppColor.containerGreyColor,
+                color: AppColor.Grey3,
               ),
               child: CustomSvgImage(imageName: AssetsImage.OBJECTS),
             ),

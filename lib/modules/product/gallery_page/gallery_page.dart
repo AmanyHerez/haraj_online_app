@@ -44,40 +44,36 @@ class _GalleryPageViewState extends State<GalleryPageView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: double.infinity,
-              height: 110,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(
-                    "assets/images/${AssetsImage.background}.png",
+            Stack(
+              children: [
+                CustomSvgImage(imageName: AssetsImage.tabBarbackground,width: MediaQuery.sizeOf(context).width,),
+                Padding(
+                  padding: const EdgeInsets.only(top: 40),
+                  child: Row(
+
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.pop(context);
+                          },
+                          child: CustomSvgImage(
+                            imageName: AssetsImage.arrowIcon,
+                            width: 8,
+                            height: 13,
+                          ),
+                        ),
+                      ),
+                      Spacer(),
+                      CustomText(text: 'صفحة المعرض',fontSize: 16,fontWeight: FontWeight.w800,),
+                      Spacer(),
+                    ],
                   ),
                 ),
-              ),
-              child: Row(
-
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: InkWell(
-                      onTap: (){
-                        Navigator.pop(context);
-                      },
-                      child: CustomSvgImage(
-                        imageName: AssetsImage.arrowIcon,
-                        width: 8,
-                        height: 13,
-                      ),
-                    ),
-                  ),
-                  Spacer(),
-                  CustomText(text: 'صفحة المعرض',fontSize: 16,),
-                  Spacer(),
-                ],
-              ),
-
+              ],
             ),
+            //
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 10),
               child: Column(
@@ -88,10 +84,11 @@ class _GalleryPageViewState extends State<GalleryPageView> {
                   Container(
                     width: double.infinity,
                     height: 60,
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColor.dividerGreyColor),
+                      color: AppColor.white,
+                      border: Border.all(color: AppColor.containerGreyColor,width: .5),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,

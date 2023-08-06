@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:haraj_app/shared/components/custom_divider.dart';
+import 'package:haraj_app/shared/components/custome_image.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
+import '../../../shared/assets_manager.dart';
 import '../../../shared/font_manager.dart';
 import '../../../shared/style/color_manager.dart';
 
@@ -15,6 +17,7 @@ class ThirdSectionFilterWidget extends StatefulWidget {
 
 class _ThirdSectionFilterWidgetState extends State<ThirdSectionFilterWidget> {
   SfRangeValues _values = SfRangeValues(40.0, 80.0);
+  double _seatsNumber = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +34,29 @@ class _ThirdSectionFilterWidgetState extends State<ThirdSectionFilterWidget> {
         ),
         //
         // to do Slider
+
+        SfSlider(
+          thumbIcon: CustomSvgImage(
+            imageName: AssetsImage.thumb,
+          ),
+          min: 2,
+          max: 50,
+          value: _seatsNumber,
+          interval: 2,
+          activeColor: AppColor.primary,
+          minorTicksPerInterval: 1,
+          onChanged: (dynamic value) {
+            setState(() {
+              _seatsNumber = value;
+            });
+          },
+          enableTooltip: true,
+          shouldAlwaysShowTooltip: true,
+          tooltipShape: SfRectangularTooltipShape(),
+          overlayShape: SfOverlayShape(
+
+          ),
+        ),
         //
         CustomeDivider(),
 

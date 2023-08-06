@@ -6,6 +6,7 @@ import '../../../../shared/components/custom_show_dialog.dart';
 import '../../../../shared/components/custom_text.dart';
 import '../../../../shared/components/custome_image.dart';
 import '../../../../shared/custom_open_bottom_sheet.dart';
+import '../../../../shared/custom_shape.dart';
 import '../../../../shared/style/color_manager.dart';
 import 'bottom_sheet/edit_offer_befor_send.dart';
 class OfferRejectListViewItem extends StatefulWidget {
@@ -22,53 +23,53 @@ class _OfferRejectListViewItemState extends State<OfferRejectListViewItem> {
       margin: EdgeInsets.only(bottom: 18),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColor.dividerGreyColor),
+        color: AppColor.white,
+        border: Border.all(color: AppColor.containerBorderColor),
       ),
       child: Row(
         children: [
-          Container(
+          SizedBox(
             width: 140,
-            height: 170,
-            clipBehavior: Clip.none,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              image: DecorationImage(
-                image: AssetImage(
-                  "assets/images/${AssetsImage.likeImage}.png",
-                ),
-                fit: BoxFit.fitWidth,
-              ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.end,
+
+
+            child: Stack(
               children: [
-                Container(
-                  width: 66,
-                  height: 27,
-                  margin: EdgeInsets.all(8),
-                  padding: EdgeInsets.symmetric(horizontal: 2),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4),
-                    color: AppColor.white,
+                ClipPath(
+                  clipper: RPSCustomPainter(),
+                  child: Image.network(
+                    "https://images.unsplash.com/photo-1629421865882-d64347f3961c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Ymx1ZSUyMGNhcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
+                    height: 154,
+                    fit: BoxFit.fill,
+                    width: 140,
                   ),
-                  child: Row(
-                    children: [
-                      CustomSvgImage(
-                        imageName: AssetsImage.locationIcon,
-                        width: 10,
-                        height: 14,
+                ),
+                PositionedDirectional(
+                    bottom: 4,
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                      padding: EdgeInsets.symmetric(horizontal: 6,vertical: 5),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4),
+                        color: Colors.white,
                       ),
-                      SizedBox(
-                        width: 10,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          CustomSvgImage(
+                            imageName: AssetsImage.locationIcon,
+                            width: 10,
+                            height: 14,
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          CustomText(
+                            text: 'ابوظبي',
+                            fontSize: 12,
+                          ),
+                        ],
                       ),
-                      CustomText(
-                        text: 'ابوظبي',
-                        fontSize: 12,
-                      ),
-                    ],
-                  ),
-                )
+                    ))
               ],
             ),
           ),

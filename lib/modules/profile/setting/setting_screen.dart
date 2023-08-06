@@ -33,46 +33,44 @@ class _SettingScreenState extends State<SettingScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: double.infinity,
-              height: 110,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(
-                    "assets/images/${AssetsImage.background}.png",
-                  ),
-                ),
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: CustomSvgImage(
-                        imageName: AssetsImage.arrowIcon,
-                        width: 8,
-                        height: 13,
+
+            Stack(children: [
+              CustomSvgImage(imageName: AssetsImage.tabBarbackground,width: MediaQuery.sizeOf(context).width,),
+              Padding(
+                padding: const EdgeInsets.only(top: 45),
+                child: Row(
+                  children: [
+
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: CustomSvgImage(
+                          imageName: AssetsImage.arrowIcon,
+                          width: 8,
+                          height: 13,
+                        ),
                       ),
                     ),
-                  ),
-                  Spacer(),
-                  CustomText(
-                    text: 'صفحة الاعدادات',
-                    fontSize: 16,
-                  ),
-                  Spacer(),
-                ],
+                    Spacer(),
+                    CustomText(
+                      text: 'صفحة الاعدادات',
+                      fontSize: 16,
+                      fontWeight: FontWeight.w800,
+                    ),
+                    Spacer(),
+                  ],
+                ),
               ),
-            ),
+            ],),
+
             Column(
               children: [
                 Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                      const EdgeInsets.symmetric(horizontal: 20,),
                   child: Column(
                     children: [
                       SizedBox(
@@ -84,8 +82,10 @@ class _SettingScreenState extends State<SettingScreen> {
                         padding:
                             EdgeInsets.symmetric(horizontal: 12, vertical: 16),
                         decoration: BoxDecoration(
+                          color: AppColor.white,
                           borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: AppColor.dividerGreyColor),
+
+                          border: Border.all(color: AppColor.containerGreyColor,width: .5),
                         ),
                         child: SingleChildScrollView(
                           child: Column(
@@ -329,6 +329,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                             iconNamePuffix: AssetsImage.passwordIcon,
 
                                             suffix: Icon(Icons.remove_red_eye),
+                                            fillColor:AppColor.Grey3,
                                           ),
                                           Row(
                                             mainAxisAlignment: MainAxisAlignment.end,
@@ -376,17 +377,18 @@ class _SettingScreenState extends State<SettingScreen> {
                       ),
                       Container(
                         width: double.infinity,
-                        height: 300,
+
                         padding:
                             EdgeInsets.symmetric(horizontal: 12, vertical: 16),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
+                          color: AppColor.white,
                           border:
-                              Border.all(color: AppColor.containerBorderColor),
+                              Border.all(color: AppColor.containerBorderColor,width: .5),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 12, vertical: 16),
+                              horizontal: 12, ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -456,6 +458,9 @@ class _SettingScreenState extends State<SettingScreen> {
                                 height: 20,
                               ),
                               CustomeDivider(),
+                              SizedBox(
+                                height: 8,
+                              ),
                             ],
                           ),
                         ),

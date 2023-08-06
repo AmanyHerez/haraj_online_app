@@ -52,48 +52,50 @@ class _FilterScreenState extends State<FilterScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: double.infinity,
-              height: 110,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(
-                    "assets/images/${AssetsImage.background}.png",
-                  ),
-                ),
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: InkWell(
-                      onTap: (){
-                        Navigator.pop(context);
-                      },
-                      child: CustomSvgImage(
-                        imageName: AssetsImage.arrowIcon,
-                        width: 8,
-                        height: 13,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 150,
-                  ),
-                  CustomText(text:  'الفلتر',fontSize: 18),
+            Stack(
+              children: [
+                CustomSvgImage(imageName: AssetsImage.tabBarbackground,width: MediaQuery.sizeOf(context).width,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 50),
+                  child: Column(
+                    children: [
 
-                ],
-              ),
+
+                      Row(
+                        children: [
+                          InkWell(
+                            onTap: (){
+                              Navigator.pop(context);
+                            },
+                            child: CustomSvgImage(
+                              imageName: AssetsImage.arrowIcon,
+                              width: 8,
+                              height: 13,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 150,
+                          ),
+                          CustomText(text:  'الفلتر',fontSize: 18),
+
+                        ],
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
+                  color: AppColor.white,
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: AppColor.dividerGreyColor,
+                      width: .5,
+                      color: AppColor.containerBorderColor,
                     )),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -185,6 +187,7 @@ class _FilterScreenState extends State<FilterScreen> {
                         ],
                       ),
                     ),
+
                   ],
                 ),
               ),

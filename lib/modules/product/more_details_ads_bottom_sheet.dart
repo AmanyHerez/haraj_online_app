@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:haraj_app/shared/assets_manager.dart';
 import 'package:haraj_app/shared/components/custom_elevated_button.dart';
+import 'package:haraj_app/shared/components/custom_head_bottomsheet.dart';
 import 'package:haraj_app/shared/components/custome_image.dart';
 import 'package:haraj_app/shared/font_manager.dart';
 import 'package:haraj_app/shared/style/color_manager.dart';
@@ -18,29 +19,7 @@ class MoreDetailsAdsBottomSheet extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: Container(
-                margin: EdgeInsets.all(8),
-                width: 30,
-                height: 30,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColor.dividerGreyColor,
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                    Icons.close,
-                    color: AppColor.primary,
-                  ),
-                  padding: EdgeInsets.all(0),
-                ),
-              ),
-            ),
+            CustomHeadBottomSheet(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:haraj_app/shared/custom_open_bottom_sheet.dart';
 
 import '../../../shared/components/custom_divider.dart';
 import '../../../shared/components/custom_elevated_button.dart';
@@ -13,7 +14,8 @@ class DetailsWidget extends StatelessWidget {
     return  Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColor.dividerGreyColor),
+        color: AppColor.white,
+        border: Border.all(color: AppColor.containerGreyColor,width: .5),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -233,22 +235,7 @@ class DetailsWidget extends StatelessWidget {
             CustomElevatedButton(
               text: 'المزيد',
               onPressed: () {
-                showModalBottomSheet(
-                  context: context,
-                  // elevation: 10,
-                  enableDrag: true,
-                  isDismissible: false,
-                  barrierColor: AppColor.lightGrey,
-                  shape: RoundedRectangleBorder(
-                    // <-- SEE HERE
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(25.0),
-                    ),
-                  ),
-                  builder: (context) {
-                    return MoreDetailsAdsBottomSheet();
-                  },
-                );
+               CustomOpenBottomSheet.openBottomSheet(context, MoreDetailsAdsBottomSheet());
               },
               bgColor: AppColor.white,
               bordercolor: AppColor.primary,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:haraj_app/shared/components/custom_divider.dart';
 import 'package:haraj_app/shared/components/custom_text.dart';
 
 import '../assets_manager.dart';
@@ -15,23 +16,22 @@ class AdsItemWidget extends StatelessWidget {
       //height: 300,
       decoration: BoxDecoration(
         color: AppColor.white,
-        borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: AppColor.grey),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: AppColor.containerBorderColor,width: 0.5),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
             width: double.infinity,
-            height: 140,
+            height: 160,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(6), topRight: Radius.circular(6)),
               image: DecorationImage(
-                image: AssetImage(
-                  "assets/images/${AssetsImage.car}.png",
-                ),
-                fit: BoxFit.fitWidth,
+                image:NetworkImage('https://api.ferrari.com/cms/network/medias//resize/6093c2415f1bb670c6d5aac2-ferrari-magazine-dmQZJnIRJp.jpg?apikey=9QscUiwr5n0NhOuQb463QEKghPrVlpaF'),
+
+                fit: BoxFit.fill,
               ),
             ),
             child: Column(
@@ -42,14 +42,12 @@ class AdsItemWidget extends StatelessWidget {
                   width: 28,
                   height: 28,
                   margin: EdgeInsets.all(6),
+                  padding: EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
                     color: AppColor.white,
                   ),
-                  child: Icon(
-                    Icons.favorite_border,
-                    color: AppColor.grey,
-                  ),
+                  child: CustomSvgImage(imageName: AssetsImage.heart,),
                 ),
                 Container(
                   width: 66,
@@ -60,21 +58,24 @@ class AdsItemWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(4),
                     color: AppColor.white,
                   ),
-                  child: Row(
-                    children: [
-                      CustomSvgImage(
-                        imageName: AssetsImage.locationIcon,
-                        width: 10,
-                        height: 14,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      CustomText(
-                        text: 'ابو دبي',
-                        fontSize: 12,
-                      ),
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 3),
+                    child: Row(
+                      children: [
+                        CustomSvgImage(
+                          imageName: AssetsImage.locationIcon,
+                          width: 10,
+                          height: 14,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        CustomText(
+                          text: 'ابو دبي',
+                          fontSize: 12,
+                        ),
+                      ],
+                    ),
                   ),
                 )
               ],
@@ -126,12 +127,7 @@ class AdsItemWidget extends StatelessWidget {
                 SizedBox(
                   height: 8,
                 ),
-                Divider(
-                    height: 1,
-                    color: AppColor.dividerGreyColor,
-                    thickness: 1,
-                    endIndent: 4,
-                    indent: 4),
+                 CustomeDivider(),
                 SizedBox(
                   height: 10,
                 ),
@@ -143,8 +139,13 @@ class AdsItemWidget extends StatelessWidget {
                       padding: EdgeInsets.all(5),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
-                        color: AppColor.containerGreyColor,
+                        color: AppColor.Grey1,
+                        border: Border.all(
+                          color: AppColor.Grey2,
+                          width: .5,
+                        )
                       ),
+
                       child: CustomSvgImage(
                         imageName: AssetsImage.OBJECTS,
                         width: 21,

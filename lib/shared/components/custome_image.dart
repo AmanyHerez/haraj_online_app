@@ -27,11 +27,13 @@ class CustomSvgImage extends StatelessWidget {
   final double? height;
   final double? width;
   final Color? color;
+  final BoxFit? fit;
   CustomSvgImage({
     required this.imageName,
      this.height,
      this.width,
     this.color,
+    this.fit,
   });
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,7 @@ class CustomSvgImage extends StatelessWidget {
       color: color,
       height: height,
       width: width,
-   fit: BoxFit.contain,
+   fit: fit ??BoxFit.contain,
 
 
     );

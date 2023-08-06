@@ -21,7 +21,7 @@ class AdsSaveWidget extends StatelessWidget {
             crossAxisCount: 2,
             mainAxisSpacing: 15,
             crossAxisSpacing: 15,
-            childAspectRatio: 0.57,
+            childAspectRatio: 0.5385,
           ),
           itemBuilder: (context, index) {
             return AdsItemWidget();

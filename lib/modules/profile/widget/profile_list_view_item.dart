@@ -21,25 +21,28 @@ class ProfileListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 18,),
-        Row(
-          children: [
-            CustomSvgImage(imageName: imageName,width: 24,height: 24,),
-            SizedBox(
-              width: 12,
-            ),
-            CustomText(text: text),
-            Spacer(),
 
-            IconButton(
-              onPressed: onPressed,
-              icon: Icon(
-                Icons.arrow_back_ios_new_outlined,
-                size: 16,
-                color: AppColor.grey,
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: Row(
+            children: [
+              CustomSvgImage(imageName: imageName,width: 24,height: 24,),
+              SizedBox(
+                width: 12,
               ),
-            ),
-          ],
+              CustomText(text: text),
+              Spacer(),
+
+              IconButton(
+                onPressed: onPressed,
+                icon: Icon(
+                  Icons.arrow_back_ios_new_outlined,
+                  size: 14,
+                  color: AppColor.grey,
+                ),
+              ),
+            ],
+          ),
         ),
 
         CustomeDivider(),

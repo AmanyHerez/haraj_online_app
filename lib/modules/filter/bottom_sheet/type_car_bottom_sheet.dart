@@ -5,7 +5,9 @@ import 'package:haraj_app/shared/components/custome_image.dart';
 import 'package:haraj_app/shared/font_manager.dart';
 import 'package:haraj_app/shared/style/color_manager.dart';
 
+import '../../../shared/components/custom_cached_network_image.dart';
 import '../../../shared/components/custom_divider.dart';
+import '../../../shared/components/custom_head_bottomsheet.dart';
 
 class TypeCarBottomSheet extends StatelessWidget {
   const TypeCarBottomSheet({Key? key}) : super(key: key);
@@ -17,29 +19,10 @@ class TypeCarBottomSheet extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: Container(
-                margin: EdgeInsets.all(8),
-                width: 30,
-                height: 30,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColor.dividerGreyColor,
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                    Icons.close,
-                    color: AppColor.primary,
-                  ),
-                  padding: EdgeInsets.all(0),
-                ),
-              ),
+            SizedBox(
+              height: 10,
             ),
+            CustomHeadBottomSheet(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
@@ -52,7 +35,7 @@ class TypeCarBottomSheet extends StatelessWidget {
             ),
             CustomeDivider(),
             ListView.separated(
-              shrinkWrap: true,
+                shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return TypeModelCarWidget();
@@ -63,10 +46,12 @@ class TypeCarBottomSheet extends StatelessWidget {
                 itemCount: 6),
             CustomeDivider(),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
-              child: CustomElevatedButton(text: 'تم', onPressed: (){},
-              bgColor: AppColor.primary,
-              colorText: AppColor.white,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: CustomElevatedButton(
+                text: 'تم',
+                onPressed: () {},
+                bgColor: AppColor.primary,
+                colorText: AppColor.white,
                 Radius: 6,
               ),
             )
@@ -82,8 +67,9 @@ Widget TypeModelCarWidget() {
     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
     child: Row(
       children: [
-        CustomPngImage(
-          imageName: AssetsImage.marcedaceIcon,
+        CustomCachedNetworkImage(
+          imageUrl:
+              'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/2048px-Mercedes-Logo.svg.png',
           width: 24,
           height: 24,
         ),
@@ -98,6 +84,7 @@ Widget TypeModelCarWidget() {
         Icon(
           Icons.check,
           color: AppColor.primary,
+          size: 16,
         ),
       ],
     ),

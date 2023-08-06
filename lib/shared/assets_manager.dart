@@ -1,7 +1,12 @@
 class AssetsImage {
   static const String logo = "logo";
   static const String background = "background";
+  static const String tabBarbackground = "tap_bar_background";
+  static const String backgroundMid = "backgroundMid";
+  static const String background2 = "background2";
+  static const String background3 = "background3";
   static const String appBarBackground = "tab_background";
+  static const String cancel = "cancel";
   static const String passwordIcon = "password_icon";
   static const String EmailIcon = "email_icon";
   static const String visibleEye = "visible_eye";
@@ -28,11 +33,17 @@ class AssetsImage {
   static const String searchIcon = "search_icon";
   static const String fillSearchIcon = "fill_search_icon";
   static const String search = "search";
+  static const String emailIcon = "email_icon";
+  static const String email = "email";
+  static const String heart = "heart";
+  static const String Map = "map";
   static const String profileIcon = "profile_icon";
   static const String fillProfileIcon = "fill_profile_icon";
   static const String filterIcon = "filter_icon";
+  static const String notificate = "notificate";
   static const String notificateIcon = "notificate_icon";
   static const String OBJECTS = "OBJECTS";
+  static const String who = "who";
   static const String locationIcon = "location_icon";
   static const String modelCarIcon = "model_car_icon";
   static const String cityIcon = "city_icon";
@@ -62,6 +73,7 @@ class AssetsImage {
   static const String deleteUser = "delete_user";
   static const String removeIcon = "remove_icon";
   static const String returnSend = "return_send";
+  static const String thumb = "thumb";
 
   //image for testing
 

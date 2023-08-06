@@ -14,7 +14,8 @@ class CardOfferBottomSheet extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 18),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColor.dividerGreyColor),
+        color: AppColor.white,
+        border: Border.all(color: AppColor.containerGreyColor,width: .5),
       ),
       child: Row(
         children: [

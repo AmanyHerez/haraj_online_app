@@ -12,11 +12,13 @@ class ProcessSearchSavedItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 69,
+
       margin: EdgeInsets.only(bottom:16),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
+          color: AppColor.white,
           border: Border.all(
-            color: AppColor.dividerGreyColor,
+            color: AppColor.containerBorderColor,
           )),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
@@ -31,7 +33,7 @@ class ProcessSearchSavedItem extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
                 border: Border.all(
-                  color: AppColor.containerGreyColor,
+                  color: AppColor.containerBorderColor,
                 ),
               ),
               child: Container(
@@ -61,7 +63,7 @@ class ProcessSearchSavedItem extends StatelessWidget {
                   children: [
                     CustomText(
                       text: '50 ',
-                      color: AppColor.primary,
+                      color: AppColor.darkprimary,
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),

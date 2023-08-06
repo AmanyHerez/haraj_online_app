@@ -6,6 +6,7 @@ import 'package:haraj_app/shared/font_manager.dart';
 import 'package:haraj_app/shared/style/color_manager.dart';
 
 import '../../../shared/components/custom_divider.dart';
+import '../../../shared/components/custom_head_bottomsheet.dart';
 
 class TypeFuelBottomSheet extends StatelessWidget {
   const TypeFuelBottomSheet({Key? key}) : super(key: key);
@@ -17,29 +18,10 @@ class TypeFuelBottomSheet extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: Container(
-                margin: EdgeInsets.all(8),
-                width: 30,
-                height: 30,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColor.dividerGreyColor,
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                    Icons.close,
-                    color: AppColor.primary,
-                  ),
-                  padding: EdgeInsets.all(0),
-                ),
-              ),
+            SizedBox(
+              height: 10,
             ),
+            CustomHeadBottomSheet(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
@@ -63,8 +45,10 @@ class TypeFuelBottomSheet extends StatelessWidget {
                 itemCount: 3),
             CustomeDivider(),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
-              child: CustomElevatedButton(text: 'تم', onPressed: (){},
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: CustomElevatedButton(
+                text: 'تم',
+                onPressed: () {},
                 bgColor: AppColor.primary,
                 colorText: AppColor.white,
                 Radius: 6,
@@ -90,6 +74,7 @@ Widget TypeFuelCarWidget() {
         Icon(
           Icons.check,
           color: AppColor.primary,
+          size: 16,
         ),
       ],
     ),

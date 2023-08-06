@@ -7,9 +7,10 @@ class CustomOpenBottomSheet{
     return showModalBottomSheet(
       context: context,
       // elevation: 10,
-      enableDrag: true,
-      isDismissible: false,
-      barrierColor: AppColor.lightGrey,
+
+      // isDismissible: false,
+      isScrollControlled: true,
+     backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(
         // <-- SEE HERE
         borderRadius: BorderRadius.vertical(

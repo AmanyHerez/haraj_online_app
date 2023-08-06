@@ -21,80 +21,78 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: double.infinity,
-              height: 300,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(
-                    "assets/images/${AssetsImage.background}.png",
-                  ),
-                ),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 40,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18),
-                    child: Row(
-                      children: [
-                        InkWell(
-                          onTap:(){
-                            Navigator.pushNamed(context, AppRoutes.FILTER);
-                          },
-                          child: CustomSvgImage(
-                            imageName: AssetsImage.filterIcon,
-                            width: 18,
-                            height: 18,
-                          ),
-                        ),
-                        Spacer(),
-                        CustomText(text: 'أهلاً وسهلاً بك ',fontSize: 16,fontWeight: FontWeight.w800,),
-                        Spacer(),
-                        Stack(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: CustomSvgImage(
-                                imageName: AssetsImage.notificateIcon,
-                                width: 25,
-                                height: 25,
-                              ),
+            Stack(
+              children: [
+                CustomSvgImage(imageName: AssetsImage.backgroundMid,width: MediaQuery.sizeOf(context).width,),
+                Column(
+                  children: [
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 18),
+                      child: Row(
+                        children: [
+                          InkWell(
+                            onTap:(){
+                              Navigator.pushNamed(context, AppRoutes.FILTER);
+                            },
+                            child: CustomSvgImage(
+                              imageName: AssetsImage.filterIcon,
+                              width: 18,
+                              height: 18,
                             ),
-                            Positioned(
-                                top: 10,
-                                right: 10,
-                                child: CircleAvatar(
-                                  backgroundColor: AppColor.primary,
-                                  radius: 5,
-                                ))
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    child: CarouselSlider(
-                      options: CarouselOptions(
-                        aspectRatio: 2.0,
-                        enlargeCenterPage: true,
-                        scrollDirection: Axis.horizontal,
-                        autoPlay: true,
+                          ),
+                          Spacer(),
+                          CustomText(text: 'أهلاً وسهلاً بك ',fontSize: 16,fontWeight: FontWeight.w800,),
+                          Spacer(),
+                          Stack(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CustomSvgImage(
+                                  imageName: AssetsImage.notificate,
+                                  width: 25,
+                                  height: 25,
+                                ),
+                              ),
+                              Positioned(
+                                  top: 8,
+                                  right: 8,
+                                  child: CircleAvatar(
+                                    backgroundColor: AppColor.error,
+                                    radius: 5,
+                                  ))
+                            ],
+                          ),
+                        ],
                       ),
-                      items: imageSliders,
                     ),
-                  ),
-                ],
-              ),
+                    SizedBox(height: 20,),
+                    Container(
+                      child: CarouselSlider(
+                        options: CarouselOptions(
+                          height: 180,
+                          // aspectRatio: 2.0,
+                          enlargeCenterPage: true,
+                          scrollDirection: Axis.horizontal,
+                          autoPlay: true,
+
+
+                        ),
+                        items: imageSliders,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
+
             SizedBox(
               height: 20,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -109,10 +107,14 @@ class HomeScreen extends StatelessWidget {
                       crossAxisCount: 2,
                       mainAxisSpacing: 15,
                       crossAxisSpacing: 15,
-                      childAspectRatio: 0.58,
+                      childAspectRatio: 0.52,
                     ),
                     itemBuilder: (context, index) {
-                      return AdsItemWidget();
+                      return InkWell(
+                        onTap: (){
+                          Navigator.pushNamed(context, AppRoutes.DETAILS_ADS_CAR);
+                        },
+                          child: AdsItemWidget());
                     },
                     itemCount: 6,
                   ),
@@ -130,117 +132,40 @@ class HomeScreen extends StatelessWidget {
 
 
 final List<String> imgList = [
-  'assets/images/${AssetsImage.Slider}.png',
-  'assets/images/${AssetsImage.Slider}.png',
-  'assets/images/${AssetsImage.Slider}.png',
+'https://media.istockphoto.com/id/176667558/photo/sport-car.jpg?s=612x612&w=0&k=20&c=3ie9FXvDFfAYVEFYUpV_1FWdiF9jRU8VlDuW2H32eng=',
+'https://media.istockphoto.com/id/176667558/photo/sport-car.jpg?s=612x612&w=0&k=20&c=3ie9FXvDFfAYVEFYUpV_1FWdiF9jRU8VlDuW2H32eng=',
+'https://media.istockphoto.com/id/176667558/photo/sport-car.jpg?s=612x612&w=0&k=20&c=3ie9FXvDFfAYVEFYUpV_1FWdiF9jRU8VlDuW2H32eng=',
 ];
+// final List<String> imgList = [
+//   'assets/images/${AssetsImage.Slider}.png',
+//   'assets/images/${AssetsImage.Slider}.png',
+//   'assets/images/${AssetsImage.Slider}.png',
+// ];
 final List<Widget> imageSliders = imgList
     .map((item) => Container(
-          child: Container(
-            margin: EdgeInsets.all(5.0),
-            child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                child: Stack(
-                  children: <Widget>[
-                    Image.asset(item, fit: BoxFit.cover, width: 1000.0),
-                  ],
-                )),
-          ),
-        ))
+      clipBehavior: Clip.antiAlias,
+      // margin: EdgeInsets.all(5.0),
+width: 600,
+      decoration: BoxDecoration(
+
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child:   Image.network(item, fit: BoxFit.cover, ),
+    ))
     .toList();
-// Widget AdsWidget() {
-//   return Container(
-//     width: 160,
-//     height: 280,
-//     decoration: BoxDecoration(
-//       color: AppColor.white,
-//       borderRadius: BorderRadius.circular(6),
-//       border: Border.all(color: AppColor.grey),
-//     ),
-//     child: Column(
-//
-//       children: [
-//         Container(
-//           width: 160,
-//           height: 130,
-//
-//           child: Stack(
-//             children: [
-//               CustomPngImage(
-//                 imageName: AssetsImage.Slider,
-//                 width: 160,
-//                 height: 130,
-//               )
-//             ],
+
+// final List<Widget> imageSliders = imgList
+//     .map((item) => Container(
+//           child: Container(
+//             margin: EdgeInsets.all(5.0),
+//             child: ClipRRect(
+//                 borderRadius: BorderRadius.all(Radius.circular(6.0)),
+//                 child: Stack(
+//                   children: <Widget>[
+//                     Image.asset(item, fit: BoxFit.cover, width: 1000.0),
+//                   ],
+//                 )),
 //           ),
-//         ),
-//         Padding(
-//           padding: const EdgeInsets.all(8.0),
-//           child: Column(
-//             crossAxisAlignment: CrossAxisAlignment.start,
-//             children: [
-//               Text(
-//                 'توسان اكسنت 2023',
-//                 style: TextStyle(fontFamily: FontConstants.fontFamily),
-//               ),
-//               Row(children: [
-//                 Text(
-//                   'الحالة :',
-//                   style: TextStyle(color: AppColor.grey),
-//                 ),
-//                 Text(
-//                   'ممتاز',
-//                   style: TextStyle(color: AppColor.green),
-//                 ),
-//               ]),
-//               RichText(
-//                 text: TextSpan(
-//                     text: '50000',
-//                     style: TextStyle(color: AppColor.black, fontSize: 18),
-//                     children: <TextSpan>[
-//                       TextSpan(
-//                         text: ' درهم',
-//                         style: TextStyle(
-//                           color: AppColor.grey,
-//                         ),
-//                       )
-//                     ]),
-//               ),
-//               Divider(
-//                   height: 1,
-//                   color: AppColor.dividerGreyColor,
-//                   thickness: 1,
-//                   endIndent: 4,
-//                   indent: 4),
-//               SizedBox(
-//                 height: 10,
-//               ),
-//               Row(
-//                 children: [
-//                   Container(
-//                     width: 32,
-//                     height: 32,
-//                     padding: EdgeInsets.all(5),
-//                     decoration: BoxDecoration(
-//                       borderRadius: BorderRadius.circular(25),
-//                       color: AppColor.grey,
-//                     ),
-//                     child: CustomSvgImage(
-//                       imageName: AssetsImage.OBJECTS,
-//                       width: 21,
-//                       height: 21,
-//                     ),
-//                   ),
-//                   SizedBox(
-//                     width: 10,
-//                   ),
-//                   Text("معرض النور للبيع "),
-//                 ],
-//               ),
-//             ],
-//           ),
-//         )
-//       ],
-//     ),
-//   );
-// }
+//         ))
+//     .toList();
+

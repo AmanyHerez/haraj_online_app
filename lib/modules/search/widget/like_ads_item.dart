@@ -15,8 +15,10 @@ class LikeAdsItem extends StatelessWidget {
     return Container(
 margin: EdgeInsets.only(left: 16),
       decoration: BoxDecoration(
+        color: AppColor.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColor.dividerGreyColor),
+        border: Border.all( width: .5,
+          color: AppColor.containerBorderColor,),
       ),
       child: Row(
         children: [
@@ -42,14 +44,12 @@ margin: EdgeInsets.only(left: 16),
                   width: 28,
                   height: 28,
                   margin: EdgeInsets.all(6),
+                  padding: EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
                     color: AppColor.white,
                   ),
-                  child: Icon(
-                    Icons.favorite_border,
-                    color: AppColor.grey,
-                  ),
+                  child: CustomSvgImage(imageName: AssetsImage.heart,),
                 ),
                 Container(
                   width: 66,

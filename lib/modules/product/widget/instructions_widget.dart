@@ -11,7 +11,8 @@ class InstructionsWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColor.dividerGreyColor),
+        color: AppColor.white,
+        border: Border.all(color: AppColor.containerGreyColor,width: .5),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),

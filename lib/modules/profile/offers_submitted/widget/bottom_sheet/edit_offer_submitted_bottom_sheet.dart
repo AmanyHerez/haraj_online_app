@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:haraj_app/shared/components/custom_elevated_button.dart';
+import 'package:haraj_app/shared/components/custom_head_bottomsheet.dart';
 
 import '../../../../../shared/assets_manager.dart';
 import '../../../../../shared/components/custom_divider.dart';
@@ -17,29 +18,7 @@ class EditOfferSubmittedBottomSheet extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: Container(
-                margin: EdgeInsets.all(10),
-                width: 30,
-                height: 30,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColor.containerGreyColor,
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                    Icons.close,
-                    color: AppColor.primary,
-                  ),
-                  padding: EdgeInsets.all(0),
-                ),
-              ),
-            ),
+         CustomHeadBottomSheet(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: CustomText(
@@ -58,7 +37,7 @@ class EditOfferSubmittedBottomSheet extends StatelessWidget {
                 children: [
                   CardOfferBottomSheet(),
                   SizedBox(height: 24,),
-                  CustomTextFomField(title: 'السعر الجديد بدرهم', iconNamePuffix: AssetsImage.dollerIcon),
+                  CustomTextFomField(title: 'السعر الجديد بدرهم', iconNamePuffix: AssetsImage.dollerIcon,fillColor: AppColor.Grey3,),
                   SizedBox(height: 24,),
                   CustomElevatedButton(text: 'ارسال التعديل', onPressed: (){},bgColor: AppColor.primary,),
                 ],

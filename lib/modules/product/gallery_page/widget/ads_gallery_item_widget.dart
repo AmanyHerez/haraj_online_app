@@ -16,7 +16,8 @@ class AdsGalleryItemWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColor.white,
         borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: AppColor.grey),
+
+        border: Border.all(color: AppColor.containerGreyColor,width: .5),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -26,10 +27,8 @@ class AdsGalleryItemWidget extends StatelessWidget {
             height: 140,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(
-                  "assets/images/${AssetsImage.car}.png",
-                ),
-                fit: BoxFit.fitWidth,
+                image: NetworkImage('https://img.freepik.com/free-photo/red-luxury-sedan-road_114579-5079.jpg?w=2000'),
+                fit: BoxFit.fill,
               ),
             ),
             child: Column(

@@ -18,7 +18,8 @@ class OfferWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColor.dividerGreyColor),
+        color: AppColor.white,
+        border: Border.all(color: AppColor.containerGreyColor,width: .5),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
@@ -30,7 +31,7 @@ class OfferWidget extends StatelessWidget {
               height: 2,
             ),
             SizedBox(height: 20,),
-            CustomTextFomField(title: 'السعر الجديد بدرهم', iconNamePuffix: AssetsImage.dollerIcon),
+            CustomTextFomField(title: 'السعر الجديد بدرهم', iconNamePuffix: AssetsImage.dollerIcon,fillColor: AppColor.Grey3,),
             SizedBox(height: 40,),
             CustomElevatedButton(text: 'تقديم عرض', onPressed: (){
               CustomDialog.ShowDialogFunction(context, 'تم ارسال العرض بنجاح');

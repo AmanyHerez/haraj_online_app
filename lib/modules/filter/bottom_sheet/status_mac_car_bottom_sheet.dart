@@ -6,6 +6,7 @@ import 'package:haraj_app/shared/font_manager.dart';
 import 'package:haraj_app/shared/style/color_manager.dart';
 
 import '../../../shared/components/custom_divider.dart';
+import '../../../shared/components/custom_head_bottomsheet.dart';
 
 class StatusMacCarBottomSheet extends StatelessWidget {
   const StatusMacCarBottomSheet({Key? key}) : super(key: key);
@@ -17,29 +18,11 @@ class StatusMacCarBottomSheet extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: Container(
-                margin: EdgeInsets.all(8),
-                width: 30,
-                height: 30,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColor.dividerGreyColor,
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                    Icons.close,
-                    color: AppColor.primary,
-                  ),
-                  padding: EdgeInsets.all(0),
-                ),
-              ),
+
+            SizedBox(
+              height: 10,
             ),
+            CustomHeadBottomSheet(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
@@ -90,6 +73,7 @@ Widget StatusMacCarWidget() {
         Icon(
           Icons.check,
           color: AppColor.primary,
+          size: 16,
         ),
       ],
     ),
