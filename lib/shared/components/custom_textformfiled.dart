@@ -22,6 +22,7 @@ class CustomTextFomField extends StatelessWidget {
   Color? color;
   Color? fillColor;
   int? maxline;
+  BorderSide? borderSide;
 
   CustomTextFomField(
       {required this.title,
@@ -41,7 +42,8 @@ class CustomTextFomField extends StatelessWidget {
       this.fontSize,
       this.maxline,
       this.fontWeight,
-      this.textInputType});
+      this.textInputType,
+      this.borderSide,});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +52,7 @@ class CustomTextFomField extends StatelessWidget {
       decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(radius??6.0),
-            borderSide: BorderSide.none,
+            borderSide:borderSide?? BorderSide.none,
           ),
           labelText: title,
           floatingLabelBehavior: floatingLabelBehavior,

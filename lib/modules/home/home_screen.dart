@@ -154,18 +154,5 @@ width: 600,
     ))
     .toList();
 
-// final List<Widget> imageSliders = imgList
-//     .map((item) => Container(
-//           child: Container(
-//             margin: EdgeInsets.all(5.0),
-//             child: ClipRRect(
-//                 borderRadius: BorderRadius.all(Radius.circular(6.0)),
-//                 child: Stack(
-//                   children: <Widget>[
-//                     Image.asset(item, fit: BoxFit.cover, width: 1000.0),
-//                   ],
-//                 )),
-//           ),
-//         ))
-//     .toList();
+
 

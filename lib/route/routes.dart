@@ -8,6 +8,7 @@ import 'package:haraj_app/modules/search/search_screen.dart';
 
 import '../modules/auth/login/login_screen.dart';
 import '../modules/auth/register/register_screen.dart';
+import '../modules/chat/custom_chat_screen.dart';
 import '../modules/home/bn_screen.dart';
 
 import '../modules/product/details_ads_car_screen.dart';
@@ -39,7 +40,7 @@ class AppRoutes {
   static const String CHANGE_EMAIL  = '/change_email';
   static const String DETAILS_ADS_CAR  = '/details_car';
   static const String GALLERY  = '/Gallery_page';
-
+  static const String CHAT_DEDAILS  = '/chat_details';
 
   static Map<String, Widget Function(BuildContext)> getPageRoutes(context) {
     return {
@@ -61,6 +62,7 @@ class AppRoutes {
       AppRoutes.OTPAFTERWRITE: (context) => OTPAfterWritingScreen(),
       AppRoutes.DETAILS_ADS_CAR: (context) => DetailsAdsCarScreen(),
       AppRoutes.GALLERY: (context) => GalleryPageView(),
+      // AppRoutes.CHAT_DEDAILS: (context) => CustomChatScreen(),
 
 
     };

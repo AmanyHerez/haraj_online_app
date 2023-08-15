@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'package:haraj_app/modules/profile/profile_screen.dart';
 import 'package:haraj_app/modules/splash/splash_screen.dart';
@@ -9,6 +10,8 @@ import '../../shared/components/custom_textformfiled.dart';
 
 import '../../test_stack_bg_image.dart';
 import '../../testing_screen.dart';
+import '../chat/routes/get_pages.dart';
+import '../chat/routes/routes_manager.dart';
 import '../favorite/favorite_screen.dart';
 import '../filter/filter_screen.dart';
 import '../home/bn_screen.dart';
@@ -27,20 +30,34 @@ import '../profile/setting/setting_screen.dart';
 
 import '../search/result_search/result_search_screen.dart';
 import '../search/search_list_screen.dart';
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       localizationsDelegates: context.localizationDelegates,
+//       supportedLocales: context.supportedLocales,
+//       locale: context.locale,
+//      routes: AppRoutes.getPageRoutes(context),
+//
+//
+//      home: SplashScreen(),
+//
+//     );
+//   }
+// }
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-     routes: AppRoutes.getPageRoutes(context),
 
-
-     home: SplashScreen(),
+      initialRoute: RoutesManager.loginScreen,
+      getPages: getPages,
 
     );
   }
