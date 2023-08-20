@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:haraj_app/modules/chat/chat_screen.dart';
+import 'package:haraj_app/chat_seller/chat_seller_screen.dart';
+
 import 'package:haraj_app/modules/favorite/favorite_screen.dart';
 import 'package:haraj_app/modules/filter/filter_screen.dart';
 import 'package:haraj_app/modules/home/home_screen.dart';
@@ -8,6 +9,7 @@ import 'package:haraj_app/modules/search/search_screen.dart';
 
 import '../modules/auth/login/login_screen.dart';
 import '../modules/auth/register/register_screen.dart';
+import '../modules/chat/chat_screen.dart';
 import '../modules/chat/custom_chat_screen.dart';
 import '../modules/home/bn_screen.dart';
 

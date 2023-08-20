@@ -23,27 +23,34 @@ class CustomTextFomField extends StatelessWidget {
   Color? fillColor;
   int? maxline;
   BorderSide? borderSide;
+  final Function(String)? onChange;
+  final Function()? onEditingComplete;
+  final Function(String)? onSubmitted;
 
-  CustomTextFomField(
-      {required this.title,
-      this.validator,
-      this.onFieldSubmitted,
-      this.controller,
-      this.suffix,
-      this.prefix,
-      this.iconNameSuffix,
-      this.radius,
-      required this.iconNamePuffix,
-      this.fontFamily,
-      this.errorTitle,
-      this.floatingLabelBehavior,
-      this.color,
-      this.fillColor,
-      this.fontSize,
-      this.maxline,
-      this.fontWeight,
-      this.textInputType,
-      this.borderSide,});
+  CustomTextFomField({
+    required this.title,
+    this.validator,
+    this.onFieldSubmitted,
+    this.controller,
+    this.suffix,
+    this.prefix,
+    this.iconNameSuffix,
+    this.radius,
+    required this.iconNamePuffix,
+    this.fontFamily,
+    this.errorTitle,
+    this.floatingLabelBehavior,
+    this.color,
+    this.fillColor,
+    this.fontSize,
+    this.maxline,
+    this.fontWeight,
+    this.textInputType,
+    this.borderSide,
+    this.onChange,
+    this.onEditingComplete,
+    this.onSubmitted,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +58,8 @@ class CustomTextFomField extends StatelessWidget {
       cursorColor: AppColor.primary,
       decoration: InputDecoration(
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(radius??6.0),
-            borderSide:borderSide?? BorderSide.none,
+            borderRadius: BorderRadius.circular(radius ?? 6.0),
+            borderSide: borderSide ?? BorderSide.none,
           ),
           labelText: title,
           floatingLabelBehavior: floatingLabelBehavior,
@@ -77,10 +84,12 @@ class CustomTextFomField extends StatelessWidget {
               left: 8,
             ),
             decoration: BoxDecoration(
-
               border: Border(
-                left: BorderSide(color: Color(0xFFD0D0D0,),),
-
+                left: BorderSide(
+                  color: Color(
+                    0xFFD0D0D0,
+                  ),
+                ),
               ),
             ),
             child: CustomSvgImage(

@@ -5,6 +5,9 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:haraj_app/modules/profile/profile_screen.dart';
 import 'package:haraj_app/modules/splash/splash_screen.dart';
 import 'package:haraj_app/route/routes.dart';
+import '../../chat_seller/chat_seller_screen.dart';
+import '../../chat_seller/home_chat_seller.dart';
+import '../../chat_seller/messaging_seller_screen.dart';
 import '../../shared/assets_manager.dart';
 import '../../shared/components/custom_textformfiled.dart';
 
@@ -54,10 +57,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
 
-      initialRoute: RoutesManager.loginScreen,
-      getPages: getPages,
+      debugShowCheckedModeBanner: false,
+home: HomeChatSellerScreen(),
+      // initialRoute: RoutesManager.loginScreen,
+      // getPages: getPages,
 
     );
   }

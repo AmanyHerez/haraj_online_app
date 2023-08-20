@@ -6,6 +6,7 @@ import 'package:haraj_app/modules/chat/routes/routes_manager.dart';
 
 import '../chat_screen.dart';
 import '../custom_chat_screen.dart';
+import '../get/bindings/app/profile_screen_binding.dart';
 import '../get/bindings/auth/login_binding.dart';
 import '../get/bindings/auth/register_binding.dart';
 
@@ -26,6 +27,7 @@ final List<GetPage<dynamic>> getPages = [
   GetPage(
     name: RoutesManager.chatScreen,
     page: () => const ChatScreen(),
+    binding:ProfileScreenBinding(),
   ),
   // GetPage(
   //   name: RoutesManager.messagingScreen,
