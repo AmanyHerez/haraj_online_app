@@ -5,6 +5,7 @@ class AssetsImage {
   static const String backgroundMid = "backgroundMid";
   static const String background2 = "background2";
   static const String background3 = "background3";
+  static const String background4 = "background4";
   static const String appBarBackground = "tab_background";
   static const String cancel = "cancel";
   static const String passwordIcon = "password_icon";

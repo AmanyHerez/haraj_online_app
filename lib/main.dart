@@ -1,13 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'app/app.dart';
+import 'app/test_register/data/sp_helper.dart';
 import 'firebase_options.dart';
-import 'modules/app/app.dart';
 import 'modules/chat/get/bindings/app/profile_screen_binding.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await SpHelper.spHelper.initSp();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

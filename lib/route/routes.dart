@@ -7,7 +7,7 @@ import 'package:haraj_app/modules/home/home_screen.dart';
 import 'package:haraj_app/modules/profile/profile_screen.dart';
 import 'package:haraj_app/modules/search/search_screen.dart';
 
-import '../modules/auth/login/login_screen.dart';
+import '../modules/auth/login/view/login_screen.dart';
 import '../modules/auth/register/register_screen.dart';
 import '../modules/chat/chat_screen.dart';
 import '../modules/chat/custom_chat_screen.dart';
@@ -23,10 +23,11 @@ import '../modules/profile/setting/otp_screen_first.dart';
 import '../modules/profile/setting/setting_screen.dart';
 
 import '../modules/splash/splash_screen.dart';
+import '../testing_screen.dart';
 class AppRoutes {
   static const String SPLASH = '/';
   static const String MAIN = '/main';
-  static const String LOGIN = '/login';
+  static const String LOGIN = '/login_mapper.dart';
   static const String REGISTER = '/register';
   static const String HOME = '/home';
   static const String CHAT = '/chat';
@@ -43,6 +44,7 @@ class AppRoutes {
   static const String DETAILS_ADS_CAR  = '/details_car';
   static const String GALLERY  = '/Gallery_page';
   static const String CHAT_DEDAILS  = '/chat_details';
+  static const String test_screen  = '/test_screen';
 
   static Map<String, Widget Function(BuildContext)> getPageRoutes(context) {
     return {
@@ -64,6 +66,7 @@ class AppRoutes {
       AppRoutes.OTPAFTERWRITE: (context) => OTPAfterWritingScreen(),
       AppRoutes.DETAILS_ADS_CAR: (context) => DetailsAdsCarScreen(),
       AppRoutes.GALLERY: (context) => GalleryPageView(),
+      // AppRoutes.test_screen: (context) =>TestingScreen(),
       // AppRoutes.CHAT_DEDAILS: (context) => CustomChatScreen(),
 
 

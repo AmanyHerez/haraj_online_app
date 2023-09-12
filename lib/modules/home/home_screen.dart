@@ -1,6 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:haraj_app/app/test_register/cubit/auth_cubit/auth_cubit.dart';
+import 'package:haraj_app/app/test_register/data/dio_helper.dart';
 import 'package:haraj_app/shared/widget/ads_item_widget.dart';
 import 'package:haraj_app/shared/assets_manager.dart';
 import 'package:haraj_app/shared/components/custome_image.dart';
@@ -96,6 +99,18 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  ElevatedButton(onPressed: ()async{
+
+                    await BlocProvider.of<AuthCubit>(context).profile();
+                    //DioHelper.dioHelper.profile();
+
+                  }, child: Text('test profile')),
+                  ElevatedButton(onPressed: ()async{
+
+                    await BlocProvider.of<AuthCubit>(context).logout();
+
+
+                  }, child: Text('logout')),
                   CustomText(text:'الاعلانات',fontWeight: FontWeight.w500,fontSize: 16,),
 
                   SizedBox(height: 8,),

@@ -76,6 +76,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       children: [
                         CustomTextFomField(
                           title: 'ابحث عن المحادثة',
+                          validator: (){},
                           fillColor: Colors.white,
                           fontSize: 12,
                           fontWeight: FontWeight.w300,

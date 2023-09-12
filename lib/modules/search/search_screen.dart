@@ -57,6 +57,7 @@ class SearchScreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: CustomTextFomField(
                         title: 'ابحث عن حراج او صاحب حراج سيارة ....',
+                        validator: (){},
                         fillColor: AppColor.white,
                         fontSize: 12,
                         fontWeight: FontWeight.w300,

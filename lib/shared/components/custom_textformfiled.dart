@@ -16,7 +16,7 @@ class CustomTextFomField extends StatelessWidget {
   final String iconNamePuffix;
   final String? fontFamily;
   final FontWeight? fontWeight;
-  final Function? validator;
+  final Function validator;
   final Function? onFieldSubmitted;
   FloatingLabelBehavior? floatingLabelBehavior;
   Color? color;
@@ -26,10 +26,11 @@ class CustomTextFomField extends StatelessWidget {
   final Function(String)? onChange;
   final Function()? onEditingComplete;
   final Function(String)? onSubmitted;
+  FocusNode? focusNode;
 
   CustomTextFomField({
     required this.title,
-    this.validator,
+    required this.validator,
     this.onFieldSubmitted,
     this.controller,
     this.suffix,
@@ -50,12 +51,17 @@ class CustomTextFomField extends StatelessWidget {
     this.onChange,
     this.onEditingComplete,
     this.onSubmitted,
+    this.focusNode,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
+      validator: (x) => validator(x),
       cursorColor: AppColor.primary,
+      focusNode: focusNode,
+      keyboardType: textInputType,
       decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(radius ?? 6.0),
@@ -101,6 +107,7 @@ class CustomTextFomField extends StatelessWidget {
             color: AppColor.error,
             fontFamily: FontConstants.fontFamily,
           )),
+      onChanged:onChange ,
     );
   }
 }

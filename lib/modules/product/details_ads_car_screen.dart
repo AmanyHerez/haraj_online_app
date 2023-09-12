@@ -62,16 +62,8 @@ class _DetailsAdsCarScreenState extends State<DetailsAdsCarScreen> {
                 padding: const EdgeInsets.only(top: 40,right: 16,left: 16),
                 child: Row(
                   children: [
-                    InkWell(
-                      onTap:(){
-                        Navigator.pop(context);
-                      },
-                      child: CustomSvgImage(
-                        imageName: AssetsImage.arrowIcon,
-                        width: 8,
-                        height: 13,
-                      ),
-                    ),
+                    IconButton(onPressed: (){ Navigator.pop(context);}, icon: Icon(Icons.arrow_back_ios_sharp)),
+
                     SizedBox(
                       width: 100,
                     ),

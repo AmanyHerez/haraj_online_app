@@ -36,7 +36,7 @@ class ChangeEmailScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
         child: Column(
           children: [
             Container(
@@ -50,16 +50,32 @@ class ChangeEmailScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomText(text: 'ادخل البريد الاكتروني الجديد',fontWeight: FontWeight.w300,color: AppColor.grey,),
-                  SizedBox(height: 16,),
-                  CustomTextFomField(title: 'ادخل البريد الاكتروني الجديد', iconNamePuffix: AssetsImage.EmailIcon),
-                  SizedBox(height: 24,),
-                  CustomElevatedButton(text: 'تغيير', onPressed: (){
-                    CustomDialog.ShowDialogFunction(context, 'لقد تم تغيير البريد الأكتروني بنجاح ');
-                  },bgColor: AppColor.primary,),
-                  SizedBox(height: 16,),
-                  
-
+                  CustomText(
+                    text: 'ادخل البريد الاكتروني الجديد',
+                    fontWeight: FontWeight.w300,
+                    color: AppColor.grey,
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  CustomTextFomField(
+                      title: 'ادخل البريد الاكتروني الجديد',
+                      validator: () {},
+                      iconNamePuffix: AssetsImage.EmailIcon),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  CustomElevatedButton(
+                    text: 'تغيير',
+                    onPressed: () {
+                      CustomDialog.ShowDialogFunction(
+                          context, 'لقد تم تغيير البريد الأكتروني بنجاح ');
+                    },
+                    bgColor: AppColor.primary,
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
                 ],
               ),
             ),

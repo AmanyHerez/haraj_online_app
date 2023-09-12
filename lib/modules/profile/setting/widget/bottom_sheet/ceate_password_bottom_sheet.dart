@@ -46,6 +46,7 @@ class CreatePasswordBottomSheet extends StatelessWidget {
                 ),
                 CustomTextFomField(
                   title: 'كلمة المرور ',
+                  validator: (){},
                   iconNamePuffix: AssetsImage.passwordIcon,
                   // errorTitle: 'الرجاء ادخال البريد الالكتروني',
                   suffix: Icon(Icons.remove_red_eye),
@@ -57,6 +58,7 @@ class CreatePasswordBottomSheet extends StatelessWidget {
                 CustomTextFomField(
                   title: 'اعاد كتابة كلمة المرور ',
                   iconNamePuffix: AssetsImage.passwordIcon,
+                  validator: (){},
                   // errorTitle: 'الرجاء ادخال البريد الالكتروني',
                   suffix: Icon(Icons.remove_red_eye),
                   fillColor:AppColor.Grey3,

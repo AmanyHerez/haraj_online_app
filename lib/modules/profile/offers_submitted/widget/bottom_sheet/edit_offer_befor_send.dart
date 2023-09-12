@@ -8,6 +8,7 @@ import '../../../../../shared/components/custom_text.dart';
 import '../../../../../shared/components/custom_textformfiled.dart';
 import '../../../../../shared/style/color_manager.dart';
 import 'card_offer_bottom_sheet.dart';
+
 class EditOfferBeforSendBottomSheet extends StatelessWidget {
   const EditOfferBeforSendBottomSheet({Key? key}) : super(key: key);
 
@@ -31,15 +32,28 @@ class EditOfferBeforSendBottomSheet extends StatelessWidget {
             ),
             CustomeDivider(),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18,vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CardOfferBottomSheet(),
-                  SizedBox(height: 24,),
-                  CustomTextFomField(title: 'السعر الجديد بدرهم', iconNamePuffix: AssetsImage.dollerIcon,fillColor: AppColor.Grey3,),
-                  SizedBox(height: 24,),
-                  CustomElevatedButton(text: ' أعادة الارسال', onPressed: (){},bgColor: AppColor.primary,),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  CustomTextFomField(
+                    title: 'السعر الجديد بدرهم',
+                    validator: () {},
+                    iconNamePuffix: AssetsImage.dollerIcon,
+                    fillColor: AppColor.Grey3,
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  CustomElevatedButton(
+                    text: ' أعادة الارسال',
+                    onPressed: () {},
+                    bgColor: AppColor.primary,
+                  ),
                 ],
               ),
             ),

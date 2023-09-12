@@ -52,19 +52,7 @@ class _GalleryPageViewState extends State<GalleryPageView> {
                   child: Row(
 
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: InkWell(
-                          onTap: (){
-                            Navigator.pop(context);
-                          },
-                          child: CustomSvgImage(
-                            imageName: AssetsImage.arrowIcon,
-                            width: 8,
-                            height: 13,
-                          ),
-                        ),
-                      ),
+                      IconButton(onPressed: (){ Navigator.pop(context);}, icon: Icon(Icons.arrow_back_ios_sharp)),
                       Spacer(),
                       CustomText(text: 'صفحة المعرض',fontSize: 16,fontWeight: FontWeight.w800,),
                       Spacer(),

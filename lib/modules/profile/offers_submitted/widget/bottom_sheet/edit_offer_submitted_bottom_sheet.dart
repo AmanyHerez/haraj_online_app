@@ -8,6 +8,7 @@ import '../../../../../shared/components/custom_text.dart';
 import '../../../../../shared/components/custom_textformfiled.dart';
 import '../../../../../shared/style/color_manager.dart';
 import 'card_offer_bottom_sheet.dart';
+
 class EditOfferSubmittedBottomSheet extends StatelessWidget {
   const EditOfferSubmittedBottomSheet({Key? key}) : super(key: key);
 
@@ -18,7 +19,7 @@ class EditOfferSubmittedBottomSheet extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-         CustomHeadBottomSheet(),
+            CustomHeadBottomSheet(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: CustomText(
@@ -31,15 +32,28 @@ class EditOfferSubmittedBottomSheet extends StatelessWidget {
             ),
             CustomeDivider(),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18,vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CardOfferBottomSheet(),
-                  SizedBox(height: 24,),
-                  CustomTextFomField(title: 'السعر الجديد بدرهم', iconNamePuffix: AssetsImage.dollerIcon,fillColor: AppColor.Grey3,),
-                  SizedBox(height: 24,),
-                  CustomElevatedButton(text: 'ارسال التعديل', onPressed: (){},bgColor: AppColor.primary,),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  CustomTextFomField(
+                    title: 'السعر الجديد بدرهم',
+                    validator: () {},
+                    iconNamePuffix: AssetsImage.dollerIcon,
+                    fillColor: AppColor.Grey3,
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  CustomElevatedButton(
+                    text: 'ارسال التعديل',
+                    onPressed: () {},
+                    bgColor: AppColor.primary,
+                  ),
                 ],
               ),
             ),

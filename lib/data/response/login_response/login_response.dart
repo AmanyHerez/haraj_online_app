@@ -13,6 +13,8 @@ class LoginResponse extends BaseResponse{
   //from json
   factory LoginResponse.fromJson(Map<String,dynamic> json)=>_$LoginResponseFromJson(json);
 
+
+
   //to json
 Map<String,dynamic> toJson()=>_$LoginResponseToJson(this);
 }

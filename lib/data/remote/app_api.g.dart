@@ -40,7 +40,7 @@ class _AppServicesClient implements AppServicesClient {
     )
             .compose(
               _dio.options,
-              '/auth/login',
+              '/auth/login_mapper.dart',
               queryParameters: queryParameters,
               data: _data,
             )

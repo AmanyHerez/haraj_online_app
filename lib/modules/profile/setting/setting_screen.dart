@@ -33,44 +33,47 @@ class _SettingScreenState extends State<SettingScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
-            Stack(children: [
-              CustomSvgImage(imageName: AssetsImage.tabBarbackground,width: MediaQuery.sizeOf(context).width,),
-              Padding(
-                padding: const EdgeInsets.only(top: 45),
-                child: Row(
-                  children: [
-
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: CustomSvgImage(
-                          imageName: AssetsImage.arrowIcon,
-                          width: 8,
-                          height: 13,
+            Stack(
+              children: [
+                CustomSvgImage(
+                  imageName: AssetsImage.tabBarbackground,
+                  width: MediaQuery.sizeOf(context).width,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 45),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: CustomSvgImage(
+                            imageName: AssetsImage.arrowIcon,
+                            width: 8,
+                            height: 13,
+                          ),
                         ),
                       ),
-                    ),
-                    Spacer(),
-                    CustomText(
-                      text: 'صفحة الاعدادات',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w800,
-                    ),
-                    Spacer(),
-                  ],
+                      Spacer(),
+                      CustomText(
+                        text: 'صفحة الاعدادات',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w800,
+                      ),
+                      Spacer(),
+                    ],
+                  ),
                 ),
-              ),
-            ],),
-
+              ],
+            ),
             Column(
               children: [
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20,),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                  ),
                   child: Column(
                     children: [
                       SizedBox(
@@ -84,8 +87,8 @@ class _SettingScreenState extends State<SettingScreen> {
                         decoration: BoxDecoration(
                           color: AppColor.white,
                           borderRadius: BorderRadius.circular(12),
-
-                          border: Border.all(color: AppColor.containerGreyColor,width: .5),
+                          border: Border.all(
+                              color: AppColor.containerGreyColor, width: .5),
                         ),
                         child: SingleChildScrollView(
                           child: Column(
@@ -232,13 +235,17 @@ class _SettingScreenState extends State<SettingScreen> {
                                                   color: AppColor.white,
                                                 ),
                                               ),
-                                              SizedBox(width: 12,),
+                                              SizedBox(
+                                                width: 12,
+                                              ),
                                               Container(
                                                 decoration: BoxDecoration(
                                                   color: AppColor.white,
                                                   borderRadius:
-                                                  BorderRadius.circular(12),
-                                                  border: Border.all(color: AppColor.container_color),
+                                                      BorderRadius.circular(12),
+                                                  border: Border.all(
+                                                      color: AppColor
+                                                          .container_color),
                                                 ),
                                                 padding: EdgeInsets.symmetric(
                                                     horizontal: 16,
@@ -287,7 +294,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                   child: ExpandablePanel(
                                     theme: const ExpandableThemeData(
                                       headerAlignment:
-                                      ExpandablePanelHeaderAlignment.center,
+                                          ExpandablePanelHeaderAlignment.center,
                                       tapBodyToCollapse: true,
                                     ),
                                     header: Padding(
@@ -314,30 +321,47 @@ class _SettingScreenState extends State<SettingScreen> {
                                     expanded: SingleChildScrollView(
                                       child: Column(
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                            CrossAxisAlignment.start,
                                         children: <Widget>[
                                           CustomeDivider(),
                                           SizedBox(
                                             height: 16,
                                           ),
-                                     CustomText(text: 'تم بادخال كلمة المرور الحالية',fontWeight: FontWeight.w300,fontSize: 12,),
+                                          CustomText(
+                                            text:
+                                                'تم بادخال كلمة المرور الحالية',
+                                            fontWeight: FontWeight.w300,
+                                            fontSize: 12,
+                                          ),
                                           SizedBox(
                                             height: 24,
                                           ),
                                           CustomTextFomField(
                                             title: 'كلمة المرور  الحالية',
-                                            iconNamePuffix: AssetsImage.passwordIcon,
-
+                                            validator: () {},
+                                            iconNamePuffix:
+                                                AssetsImage.passwordIcon,
                                             suffix: Icon(Icons.remove_red_eye),
-                                            fillColor:AppColor.Grey3,
+                                            fillColor: AppColor.Grey3,
                                           ),
                                           Row(
-                                            mainAxisAlignment: MainAxisAlignment.end,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
                                             children: [
-                                            TextButton(onPressed: (){
-                                              CustomOpenBottomSheet.openBottomSheet(context, CreatePasswordBottomSheet());
-                                            }, child: CustomText(text: 'هل نسيت كلمة المرور ؟',color: AppColor.primary,)),
-                                          ],),
+                                              TextButton(
+                                                  onPressed: () {
+                                                    CustomOpenBottomSheet
+                                                        .openBottomSheet(
+                                                            context,
+                                                            CreatePasswordBottomSheet());
+                                                  },
+                                                  child: CustomText(
+                                                    text:
+                                                        'هل نسيت كلمة المرور ؟',
+                                                    color: AppColor.primary,
+                                                  )),
+                                            ],
+                                          ),
                                           SizedBox(
                                             height: 24,
                                           ),
@@ -377,18 +401,18 @@ class _SettingScreenState extends State<SettingScreen> {
                       ),
                       Container(
                         width: double.infinity,
-
                         padding:
                             EdgeInsets.symmetric(horizontal: 12, vertical: 16),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
                           color: AppColor.white,
-                          border:
-                              Border.all(color: AppColor.containerBorderColor,width: .5),
+                          border: Border.all(
+                              color: AppColor.containerBorderColor, width: .5),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 12, ),
+                            horizontal: 12,
+                          ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [

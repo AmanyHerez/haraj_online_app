@@ -59,7 +59,7 @@ class FbAuthController with FbHelper {
         chatUser.id = userCredential.user!.uid;
         await _auth.signOut();
         await FbFireStoreUsersController().saveUser(chatUser);
-        return ProcessResponse("Verification email sent, verify and login");
+        return ProcessResponse("Verification email sent, verify and login_mapper.dart");
       }
     } on FirebaseAuthException catch (e) {
       return getAuthExceptionResponse(e);

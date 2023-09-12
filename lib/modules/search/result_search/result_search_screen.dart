@@ -74,6 +74,7 @@ class RwsultSearchScreen extends StatelessWidget {
                           width: 320,
                           child: CustomTextFomField(
                             title: 'ابحث عن حراج او صاحب حراج سيارة ....',
+                            validator: (){},
                             fillColor: AppColor.white,
                             fontSize: 12,
                             radius: 10,

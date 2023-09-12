@@ -34,6 +34,7 @@ class SelectCityBottomSheet extends StatelessWidget {
             CustomeDivider(),
             CustomTextFomField(
               title: 'ابحث عن اسم المدينة',
+              validator: (){},
               iconNamePuffix: AssetsImage.searchIcon,
               fillColor: Color(0xFFF9F9F9),
               floatingLabelBehavior: FloatingLabelBehavior.never,

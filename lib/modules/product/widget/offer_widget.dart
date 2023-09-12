@@ -31,7 +31,7 @@ class OfferWidget extends StatelessWidget {
               height: 2,
             ),
             SizedBox(height: 20,),
-            CustomTextFomField(title: 'السعر الجديد بدرهم', iconNamePuffix: AssetsImage.dollerIcon,fillColor: AppColor.Grey3,),
+            CustomTextFomField(title: 'السعر الجديد بدرهم', validator: (){}, iconNamePuffix: AssetsImage.dollerIcon,fillColor: AppColor.Grey3,),
             SizedBox(height: 40,),
             CustomElevatedButton(text: 'تقديم عرض', onPressed: (){
               CustomDialog.ShowDialogFunction(context, 'تم ارسال العرض بنجاح');

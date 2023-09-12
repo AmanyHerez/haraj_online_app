@@ -22,7 +22,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<BnModel> _bnScreen = <BnModel>[
     const BnModel(widget: HomeScreen()),
     const BnModel(widget: FavoriteScreen()),
-    const BnModel(widget: ChatScreen()),
+    const BnModel(widget: ChatsScreen()),
     const BnModel(widget: SearchScreen()),
     const BnModel(widget: ProfileScreen()),
 
@@ -74,6 +74,16 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
+    );
+  }
+}
+class ChatsScreen extends StatelessWidget {
+  const ChatsScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Chat Screen'),),
     );
   }
 }

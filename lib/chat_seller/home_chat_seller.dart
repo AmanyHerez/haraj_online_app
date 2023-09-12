@@ -85,6 +85,7 @@ class _HomeChatSellerScreenState extends State<HomeChatSellerScreen> {
                         CustomTextFomField(
                           title: 'ابحث عن المحادثة',
                           fillColor: Colors.white,
+                          validator: (){},
                           fontSize: 12,
                           fontWeight: FontWeight.w300,
                           iconNamePuffix: AssetsImage.searchIcon,

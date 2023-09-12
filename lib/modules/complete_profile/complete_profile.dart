@@ -91,7 +91,7 @@ class CompleteProfileScreen extends StatelessWidget {
                       CustomTextFomField(
                         title: '  الاسم',
                         iconNamePuffix: AssetsImage.userIcon,
-
+                        validator: (){},
                       ),
                       SizedBox(
                         height: 20,
@@ -99,7 +99,7 @@ class CompleteProfileScreen extends StatelessWidget {
                       CustomTextFomField(
                         title: ' رقم الهاتف +971 ',
                         iconNamePuffix: AssetsImage.phoneIcon,
-
+                        validator: (){},
 
                       ),
                       SizedBox(
