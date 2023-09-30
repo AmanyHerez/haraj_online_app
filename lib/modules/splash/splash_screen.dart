@@ -1,9 +1,14 @@
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:haraj_app/app/test_register/data/sp_helper.dart';
 import 'package:haraj_app/route/routes.dart';
 import 'package:haraj_app/shared/assets_manager.dart';
 import 'package:haraj_app/shared/components/custome_image.dart';
+
+import '../../app/auth_cubit/data/sp_helper.dart';
+import '../../app/stander_cubit/stander_cubit.dart';
+import '../../test_thrree.dart';
+import '../../test_two.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,10 +22,14 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, AppRoutes.LOGIN);
+       Navigator.pushReplacementNamed(context, AppRoutes.LOGIN);
+      // Navigator.push(context, MaterialPageRoute(builder: (context) => testingRadio(),));
     });
     super.initState();
     fetchDeviceInfo();
+    StanderCubit.get(context).getFuels();
+    StanderCubit.get(context).getGeneralStatuses();
+    StanderCubit.get(context).getMechanicalStatuses();
 
   }
 

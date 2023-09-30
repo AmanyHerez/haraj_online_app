@@ -70,13 +70,30 @@ class AssetsImage {
   static const String shareIcon = "share_icon";
   static const String privacyIcon = "privacy_icon";
   static const String termsIcon = "terms_icon";
+  static const String setting = "setting";
+  static const String fill_setting = "fill_setting";
+  static const String car_ads = "car_ads";
   static const String settingIcon = "setting_icon";
+  static const String trademark_icon = "trademark_icon";
+  static const String body_car_icon = "body_car_icon";
+  static const String regional_specification_icon = "regional_specification_icon";
+  static const String status_car_icon = "status_car_icon";
+  static const String add_icon = "add_icon";
   static const String deleteUser = "delete_user";
   static const String removeIcon = "remove_icon";
   static const String returnSend = "return_send";
   static const String hello = "hello";
   static const String liner_bg = "liner_bg";
   static const String thumb = "thumb";
+  static const String price_icon = "price_icon";
+  static const String category = "category";
+  static const String year_manficutre = "year_manficutre";
+  static const String power_engine = "power_engine";
+  static const String killometer = "killometer";
+  static const String color = "color";
+  static const String color_inside = "color_inside";
+
+
 
   //image for testing
 

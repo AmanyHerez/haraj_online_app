@@ -63,16 +63,12 @@ class _FilterScreenState extends State<FilterScreen> {
 
                       Row(
                         children: [
-                          InkWell(
-                            onTap: (){
-                              Navigator.pop(context);
-                            },
-                            child: CustomSvgImage(
-                              imageName: AssetsImage.arrowIcon,
-                              width: 8,
-                              height: 13,
-                            ),
-                          ),
+                          IconButton(onPressed: (){  Navigator.pop(context);}, icon: CustomSvgImage(
+                            imageName: AssetsImage.arrowIcon,
+                            width: 8,
+                            height: 13,
+                          ),),
+
                           SizedBox(
                             width: 150,
                           ),
@@ -117,22 +113,27 @@ class _FilterScreenState extends State<FilterScreen> {
                           ),
                           FilterAndSearchItemWidget(
                               title: 'موديل السيارة',
+                              leading: "",
                               iconName: AssetsImage.modelCarIcon,
                               widget: TypeCarBottomSheet()),
                           FilterAndSearchItemWidget(
                               title: 'المدينة ',
+                              leading: "",
                               iconName: AssetsImage.cityIcon,
                               widget: SelectCityBottomSheet()),
                           FilterAndSearchItemWidget(
                               title: ' نوع الوقود',
+                              leading: "",
                               iconName: AssetsImage.fuelIcon,
                               widget: TypeFuelBottomSheet()),
                           FilterAndSearchItemWidget(
                               title: ' الحالة الميكانيكية لسيارة',
+                              leading: "",
                               iconName: AssetsImage.macCarIcon,
                               widget: StatusMacCarBottomSheet()),
                           FilterAndSearchItemWidget(
                               title: ' سنة الانتاج',
+                              leading: "",
                               iconName: AssetsImage.yearIcon,
                               widget: YearProductionCarBottomSheet()),
                           SizedBox(

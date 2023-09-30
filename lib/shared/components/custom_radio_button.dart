@@ -15,23 +15,31 @@ class CustomRadioButton<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool selected =value ==groupValue;
+    final bool selected = value == groupValue;
+    print('/////////////////////////////');
+    print('value is $value');
+    print('groupValue is $groupValue');
+    print('selected is $selected');
+    print('/////////////////////////////');
     return InkWell(
       onTap: () => onChanged(value),
 
-      child: Container(
-        width: 16,
-        height: 16,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(25),
-          color:selected?AppColor.primary: AppColor.lightGrey,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: 16,
+          height: 16,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color:selected?AppColor.primary: AppColor.lightGrey,
+          ),
+          child:selected? Icon(
+            Icons.check_sharp,
+            color: Colors.white,
+            size: 12,
+          ):null
         ),
-        child:selected? Icon(
-          Icons.check_sharp,
-          color: Colors.white,
-          size: 12,
-        ):null,
       ),
     );
   }

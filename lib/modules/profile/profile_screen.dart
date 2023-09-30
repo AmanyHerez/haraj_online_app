@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:haraj_app/app/auth_cubit/cubit/auth_cubit/auth_cubit.dart';
 import 'package:haraj_app/modules/profile/bottom_sheet/share_app_bottom_sheet.dart';
 import 'package:haraj_app/modules/profile/widget/profile_list_view_item.dart';
 import 'package:haraj_app/route/routes.dart';
@@ -23,7 +24,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar:  PreferredSize(
+      appBar: PreferredSize(
         preferredSize: Size(MediaQuery.of(context).size.width, 330),
         child: Stack(
           children: [
@@ -37,9 +38,8 @@ class ProfileScreen extends StatelessWidget {
               top: 55,
               end: 0,
               start: 0,
-              child:  Column(
+              child: Column(
                 children: [
-
                   Row(
                     children: [
                       Spacer(),
@@ -53,8 +53,7 @@ class ProfileScreen extends StatelessWidget {
                         padding: const EdgeInsets.only(left: 21),
                         child: InkWell(
                           onTap: () {
-                            Navigator.pushNamed(
-                                context, AppRoutes.EDITPROFILE);
+                            Navigator.pushNamed(context, AppRoutes.EDITPROFILE);
                           },
                           child: CustomSvgImage(
                             imageName: AssetsImage.editIcon,
@@ -76,8 +75,10 @@ class ProfileScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(75),
                     ),
                     child: CachedNetworkImage(
-                      imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
-                      placeholder: (context, url) => CircularProgressIndicator(),
+                      imageUrl:
+                          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+                      placeholder: (context, url) =>
+                          CircularProgressIndicator(),
                       errorWidget: (context, url, error) => Icon(Icons.error),
                       fit: BoxFit.fill,
                     ),
@@ -103,7 +104,12 @@ class ProfileScreen extends StatelessWidget {
                             height: 12,
                           ),
                           CustomText(
-                            text: 'Mona Fadl@gmail.com',
+                            text: AuthCubit.get(context)
+                                    .profileModel
+                                    .data!
+                                    .email ??
+                                "Null",
+                            //text: 'Mona Fadl@gmail.com',
                             color: AppColor.grey,
                           ),
                         ],
@@ -121,7 +127,7 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.phone_android_sharp,
                             color: AppColor.grey,
                             size: 30,
@@ -144,9 +150,7 @@ class ProfileScreen extends StatelessWidget {
         ),
       ),
       body: ListView(
-
         children: [
-
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 24,
@@ -154,27 +158,32 @@ class ProfileScreen extends StatelessWidget {
             child: Column(
               children: [
                 ProfileListViewItem(
-                    imageName: AssetsImage.offerIcon,
-                    text: 'العروض المقدمة',
-                    onPressed: () {
-                      Navigator.pushNamed(context, AppRoutes.OFFER_SUBMITTED);
-                    }),
+                  imageName: AssetsImage.offerIcon,
+                  text: 'العروض المقدمة',
+                  onPressed: () {
+                    Navigator.pushNamed(context, AppRoutes.OFFER_SUBMITTED);
+                  },
+                ),
                 ProfileListViewItem(
-                    imageName: AssetsImage.who,
-                    text: 'من نحن',
-                    onPressed: () {}),
+                  imageName: AssetsImage.who,
+                  text: 'من نحن',
+                  onPressed: () {},
+                ),
                 ProfileListViewItem(
-                    imageName: AssetsImage.aboutIcon,
-                    text: 'حول التطبيق',
-                    onPressed: () {}),
+                  imageName: AssetsImage.aboutIcon,
+                  text: 'حول التطبيق',
+                  onPressed: () {},
+                ),
                 ProfileListViewItem(
-                    imageName: AssetsImage.connectionIcon,
-                    text: 'تواصل معنا',
-                    onPressed: () {
-                      CustomOpenBottomSheet.openBottomSheet(
-                          context, ContactMeBottomSheet());
-                    }),
-
+                  imageName: AssetsImage.connectionIcon,
+                  text: 'تواصل معنا',
+                  onPressed: () {
+                    CustomOpenBottomSheet.openBottomSheet(
+                      context,
+                      ContactMeBottomSheet(),
+                    );
+                  },
+                ),
                 ProfileListViewItem(
                     imageName: AssetsImage.shareIcon,
                     text: 'شارك مع الاصدقاء',

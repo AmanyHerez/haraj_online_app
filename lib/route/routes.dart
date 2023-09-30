@@ -7,6 +7,7 @@ import 'package:haraj_app/modules/home/home_screen.dart';
 import 'package:haraj_app/modules/profile/profile_screen.dart';
 import 'package:haraj_app/modules/search/search_screen.dart';
 
+import '../features/seller/home/seller_bn_screen.dart';
 import '../modules/auth/login/view/login_screen.dart';
 import '../modules/auth/register/register_screen.dart';
 import '../modules/chat/chat_screen.dart';
@@ -27,6 +28,7 @@ import '../testing_screen.dart';
 class AppRoutes {
   static const String SPLASH = '/';
   static const String MAIN = '/main';
+  static const String MAIN_SELLER = '/main_seller';
   static const String LOGIN = '/login_mapper.dart';
   static const String REGISTER = '/register';
   static const String HOME = '/home';
@@ -50,6 +52,7 @@ class AppRoutes {
     return {
       // AppRoutes.SPLASH: (context) => SplashScreen(),
       AppRoutes.MAIN: (context) => MainScreen(),
+      AppRoutes.MAIN_SELLER: (context) => MainSellerScreen(),
       AppRoutes.LOGIN: (context) => LoginScreen(),
       AppRoutes.REGISTER: (context) => RegisterScreen(),
       AppRoutes.HOME: (context) => HomeScreen(),

@@ -101,14 +101,17 @@ class SearchScreen extends StatelessWidget {
                             ),
                             FilterAndSearchItemWidget(
                                 title: 'موديل السيارة',
+                                leading: "",
                                 iconName: AssetsImage.modelCarIcon,
                                 widget: TypeCarBottomSheet()),
                             FilterAndSearchItemWidget(
                                 title: 'المدينة ',
+                                leading: "",
                                 iconName: AssetsImage.cityIcon,
                                 widget: SelectCityBottomSheet()),
                             FilterAndSearchItemWidget(
                                 title: ' نوع الوقود',
+                                leading: "",
                                 iconName: AssetsImage.fuelIcon,
                                 widget: TypeFuelBottomSheet()),
                             SizedBox(

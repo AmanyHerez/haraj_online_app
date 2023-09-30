@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:haraj_app/app/test_register/cubit/auth_cubit/auth_cubit.dart';
-import 'package:haraj_app/app/test_register/cubit/auth_cubit/auth_state.dart';
-
 import 'package:haraj_app/route/routes.dart';
 import 'package:haraj_app/shared/assets_manager.dart';
 import 'package:haraj_app/shared/components/custom_divider.dart';
@@ -11,6 +8,9 @@ import 'package:haraj_app/shared/components/custom_radio_button.dart';
 import 'package:haraj_app/shared/components/custome_image.dart';
 import 'package:haraj_app/shared/font_manager.dart';
 import 'package:haraj_app/shared/style/color_manager.dart';
+
+import '../../../app/auth_cubit/cubit/auth_cubit/auth_cubit.dart';
+import '../../../app/auth_cubit/cubit/auth_cubit/auth_state.dart';
 
 class TypeAccountScreen extends StatefulWidget {
   TypeAccountScreen({Key? key}) : super(key: key);
@@ -36,10 +36,10 @@ class _TypeAccountScreenState extends State<TypeAccountScreen> {
               print("register is loading ...");
             } else if (state is SucessAuthState) {
               if(authCubit.value=="1"){
-                Navigator.pushReplacementNamed(context, AppRoutes.MAIN);
+                Navigator.pushReplacementNamed(context, AppRoutes.MAIN_SELLER);
               }
               else{
-                Navigator.pushReplacementNamed(context, AppRoutes.test_screen);
+                Navigator.pushReplacementNamed(context, AppRoutes.MAIN);
               }
 
             } else {

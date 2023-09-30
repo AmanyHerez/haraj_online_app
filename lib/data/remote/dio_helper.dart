@@ -7,7 +7,6 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import 'api_url.dart';
 
-
 class DioHelper {
   static late Dio dio;
 
@@ -20,7 +19,7 @@ class DioHelper {
             if (statusCode == null) {
               return false;
             }
-            if (statusCode == 422  || statusCode == 401) {
+            if (statusCode == 422 || statusCode == 401) {
               // your http status code
               return true;
             } else {
@@ -29,6 +28,7 @@ class DioHelper {
           },
           headers: {
             'Content-Type': 'application/json',
+            'lang': 'en',
           }),
     );
     (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
@@ -44,10 +44,22 @@ class DioHelper {
           requestHeader: true, requestBody: true, responseHeader: true));
     }
   }
+
   static Future<Response<Map<String, dynamic>>> postDate({
     required String url,
     Map<String, dynamic>? query,
     Map<String, dynamic>? data,
+    String? token,
+    required String lang,
+  }) async {
+    dio.options.headers = {'Authorization': 'Bearer $token'};
+    return dio.post(url, queryParameters: query, data: data);
+  }
+
+  static Future<Response<Map<String, dynamic>>> postFile({
+    required String url,
+    Map<String, dynamic>? query,
+    var data,
     String? token,
     required String lang,
   }) async {
@@ -75,25 +87,4 @@ class DioHelper {
     return await dio.get(url, queryParameters: query);
   }
 }
-// import 'dart:io';
-//
-// import 'package:dio/dio.dart';
-// import 'package:dio/dio.dart';
-//
-// class DioHelper {
-//   final String _baseUrl = "http://haraj-online.com/api";
-//   Dio dio = Dio();
-//
-//   Future<dynamic> post(
-//       String url, Map<String, String> body, Map<String, String> header) async {
-//     // var urlPath= Uri.parse(_baseUrl + url);
-//
-//     final response = await dio.post(
-//       '$_baseUrl$url',
-//       data: body,
-//       options: Options(headers: header),
-//     );
-//
-//     return response.data;
-//   }
-// }
+

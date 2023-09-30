@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:haraj_app/app/test_register/cubit/auth_cubit/auth_cubit.dart';
 import 'package:haraj_app/route/routes.dart';
 import 'package:haraj_app/shared/assets_manager.dart';
 import 'package:haraj_app/shared/components/custom_elevated_button.dart';
@@ -10,6 +9,7 @@ import 'package:haraj_app/shared/custom_open_bottom_sheet.dart';
 import 'package:haraj_app/shared/font_manager.dart';
 import 'package:haraj_app/shared/style/color_manager.dart';
 
+import '../../../app/auth_cubit/cubit/auth_cubit/auth_cubit.dart';
 import '../../../shared/components/custom_textformfiled.dart';
 import '../../../shared/widget/row_divider_widget.dart';
 import '../../../shared/widget/social_container_widget.dart';
@@ -17,7 +17,7 @@ import '../type_account/type_account_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
 
-  var confirmPass;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,13 +71,11 @@ class RegisterScreen extends StatelessWidget {
                           height: 30,
                         ),
                         CustomTextFomField(
-                          title: ' البريد الالكتروني',
+                          title: 'البريد الالكتروني',
                           iconNamePuffix: AssetsImage.EmailIcon,
                           controller: BlocProvider.of<AuthCubit>(context).emailRegController,
                           textInputType: TextInputType.emailAddress,
-                          validator: (String value){},
-
-                          // errorTitle: 'الرجاء ادخال البريد الالكتروني',
+                          validator: AuthCubit.get(context).emailValidation,
                         ),
                         const SizedBox(
                           height: 20,
@@ -86,17 +84,7 @@ class RegisterScreen extends StatelessWidget {
                           title: 'كلمة المرور ',
                           controller: BlocProvider.of<AuthCubit>(context).passwordRegController,
                           iconNamePuffix: AssetsImage.passwordIcon,
-                          validator: (String value) {
-                            confirmPass = value;
-                            if (value.isEmpty) {
-                              return "Please Enter New Password";
-                            } else if (value.length < 8) {
-                              return "Password must be atleast 8 characters long";
-                            } else {
-                              return null;
-                            }
-                          },
-                          // errorTitle: 'الرجاء ادخال البريد الالكتروني',
+                          validator:AuthCubit.get(context).passwordValidation ,
                           suffix: Icon(Icons.remove_red_eye),
                         ),
                         const SizedBox(
@@ -106,18 +94,7 @@ class RegisterScreen extends StatelessWidget {
                           title: 'اعاد كتابة كلمة المرور ',
                           iconNamePuffix: AssetsImage.passwordIcon,
                           controller: BlocProvider.of<AuthCubit>(context).confirmePassController,
-                          validator: (String value) {
-                            if (value.isEmpty) {
-                              return "Please Re-Enter New Password";
-                            } else if (value.length < 8) {
-                              return "Password must be atleast 8 characters long";
-                            } else if (value != confirmPass) {
-                              return "Password must be same as above";
-                            } else {
-                              return null;
-                            }
-                          },
-                          // errorTitle: 'الرجاء ادخال البريد الالكتروني',
+                          validator: AuthCubit.get(context).ConFirmPasswordValidation,
                           suffix: Icon(Icons.remove_red_eye),
                         ),
                         const SizedBox(
@@ -126,13 +103,14 @@ class RegisterScreen extends StatelessWidget {
                         CustomElevatedButton(
                             text: 'انشاء حساب',
                             onPressed: () {
-                              // BlocProvider.of<RegisterCubit>(context)
-                              //     .registerKey.currentState!.save();
-                              CustomOpenBottomSheet.openBottomSheet(
-                                  context, TypeAccountScreen());
+                              if (BlocProvider.of<AuthCubit>(context)
+                                  .registerKey
+                                  .currentState!
+                                  .validate()) {
+                                CustomOpenBottomSheet.openBottomSheet(
+                                    context, TypeAccountScreen());
 
-
-
+                              }
                             }),
                         const SizedBox(
                           height: 20,

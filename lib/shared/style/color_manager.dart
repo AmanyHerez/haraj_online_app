@@ -7,6 +7,7 @@ class AppColor {
   static const Color darkprimary = Color(0xFF4F0002);
   static const Color Lightprimary = Color(0xFFF9ECEC);
   static const Color lightGrey = Color(0xFFF0F0F0);
+  static const Color bnColor = Color(0xFFDFE8EE);
   static const Color grey = Color(0xFFA3A3A3);
   static const Color greyContainerBottomSheet = Color(0xFFE4E4E4);
   static const Color containerBorderColor = Color(0xFFE2E2E2);
